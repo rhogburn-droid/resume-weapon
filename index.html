@@ -14,6 +14,8 @@ body{background:#0a0a0f;font-family:system-ui,sans-serif;color:#cbd5e1}
 textarea:focus,input:focus{outline:none}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 @keyframes slideUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.no-copy{user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none}
+.no-copy *{user-select:none;-webkit-user-select:none}
 @keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
 ::-webkit-scrollbar{width:6px}
 ::-webkit-scrollbar-track{background:#0a0a0f}
@@ -144,8 +146,11 @@ function previewExecutive(text){
 }
 
 // --- Download helpers ---
+const WATERMARK_TOP='<div style="text-align:center;padding:8px 0 12px;border-bottom:2px solid #7c3aed;margin-bottom:24px"><span style="font-family:Helvetica,Arial,sans-serif;font-size:10px;letter-spacing:3px;color:#7c3aed;text-transform:uppercase;font-weight:700">✦ Created with <a href="https://resumeweapon.com" style="color:#7c3aed;text-decoration:none">ResumeWeapon.com</a> ✦</span></div>';
+const WATERMARK_BOTTOM='<div style="text-align:center;padding:12px 0 8px;border-top:2px solid #7c3aed;margin-top:24px"><span style="font-family:Helvetica,Arial,sans-serif;font-size:10px;letter-spacing:3px;color:#7c3aed;text-transform:uppercase;font-weight:700">✦ Powered by <a href="https://resumeweapon.com" style="color:#7c3aed;text-decoration:none">ResumeWeapon.com</a> — AI Resume Builder ✦</span></div>';
+
 function downloadAsWord(html,filename){
-  const full='<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><style>body{margin:0.75in}</style></head><body>'+html+'</body></html>';
+  const full='<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><style>body{margin:0.75in}</style></head><body>'+WATERMARK_TOP+html+WATERMARK_BOTTOM+'</body></html>';
   const blob=new Blob([full],{type:"application/msword"});
   const url=URL.createObjectURL(blob);
   const a=document.createElement("a");a.href=url;a.download=filename+".doc";a.click();
@@ -154,7 +159,7 @@ function downloadAsWord(html,filename){
 
 function downloadAsPDF(html,filename){
   const win=window.open("","_blank","width=800,height=1000");
-  win.document.write('<!DOCTYPE html><html><head><meta charset="utf-8"><title>'+filename+'</title><style>@page{margin:0.6in}body{margin:0;padding:40px}</style></head><body>'+html+'</body></html>');
+  win.document.write('<!DOCTYPE html><html><head><meta charset="utf-8"><title>'+filename+'</title><style>@page{margin:0.6in}body{margin:0;padding:40px}a{color:#7c3aed;text-decoration:none}</style></head><body>'+WATERMARK_TOP+html+WATERMARK_BOTTOM+'</body></html>');
   win.document.close();
   setTimeout(()=>{win.print()},500);
 }
@@ -176,6 +181,24 @@ function App(){
   const[style,setStyle]=useState("modern");
   const[editPrompt,setEditPrompt]=useState("");
   const[editing,setEditing]=useState(false);
+  const[isPaid,setIsPaid]=useState(()=>{try{const p=localStorage.getItem("rw-paid");if(p){const d=JSON.parse(p);if(d.expires>Date.now())return true}return false}catch(e){return false}});
+  const[showUpgrade,setShowUpgrade]=useState(false);
+  const[checkoutLoading,setCheckoutLoading]=useState("");
+
+  // Check URL for payment success
+  const{useEffect}=React;
+  useEffect(()=>{
+    const params=new URLSearchParams(window.location.search);
+    if(params.get("paid")==="true"){
+      const expires=Date.now()+(30*24*60*60*1000); // 30 days
+      try{localStorage.setItem("rw-paid",JSON.stringify({expires}))}catch(e){}
+      setIsPaid(true);
+      window.history.replaceState({},"",window.location.pathname);
+    }
+    if(params.get("cancelled")==="true"){
+      window.history.replaceState({},"",window.location.pathname);
+    }
+  },[]);
   const fRef=useRef(null);
 
   const FINGERPRINT="<!-- RESUME-WEAPON-GENERATED -->";
@@ -343,6 +366,35 @@ function App(){
   },[editPrompt,resume,cleanResume]);
 
   const has=kb.length>0||li||extra;
+
+  const startCheckout=useCallback(async(plan)=>{
+    setCheckoutLoading(plan);
+    try{
+      const r=await fetch("/api/checkout",{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({plan:plan,origin:window.location.origin})
+      });
+      const d=await r.json();
+      if(d.url)window.location.href=d.url;
+      else setErr("Checkout error: "+(d.error||"Unknown error"));
+    }catch(x){setErr("Checkout failed: "+x.message)}
+    finally{setCheckoutLoading("")}
+  },[]);
+
+  const handleDownload=useCallback((type)=>{
+    if(isPaid){
+      // Clean download — no watermark
+      if(type==="pdf"){const win=window.open("","_blank","width=800,height=1000");win.document.write('<!DOCTYPE html><html><head><meta charset="utf-8"><title>Resume</title><style>@page{margin:0.6in}body{margin:0;padding:40px}</style></head><body>'+getHTML()+'</body></html>');win.document.close();setTimeout(()=>{win.print()},500)}
+      else if(type==="word"){const full='<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><style>body{margin:0.75in}</style></head><body>'+getHTML()+'</body></html>';const blob=new Blob([full],{type:"application/msword"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="Resume.doc";a.click();URL.revokeObjectURL(url)}
+      else if(type==="copy"){navigator.clipboard.writeText(cleanResume).catch(()=>{})}
+    }else{
+      // Watermarked download
+      if(type==="pdf")downloadAsPDF(getHTML(),"Resume");
+      else if(type==="word")downloadAsWord(getHTML(),"Resume");
+      else if(type==="copy"){navigator.clipboard.writeText("✦ Created with ResumeWeapon.com ✦\n\n"+cleanResume+"\n\n✦ Powered by ResumeWeapon.com — AI Resume Builder ✦").catch(()=>{})}
+    }
+  },[isPaid,cleanResume,getHTML]);
   const btnS=(col,bg,bdr)=>({fontFamily:mono,fontSize:11,color:col,background:bg,border:"1px solid "+bdr,padding:"8px 16px",borderRadius:6,cursor:"pointer",letterSpacing:1});
 
   const getHTML=()=>style==="classic"?classicHTML(cleanResume):style==="executive"?executiveHTML(cleanResume):modernHTML(cleanResume);
@@ -441,49 +493,82 @@ function App(){
           })
         ),
 
-        // Download Buttons
+        // Download Buttons — always show paywall if not paid
         el("div",{style:{display:"flex",gap:10,marginBottom:20,flexWrap:"wrap"}},
-          el("button",{onClick:()=>downloadAsPDF(getHTML(),"Resume"),style:{
+          el("button",{onClick:()=>isPaid?handleDownload("pdf"):setShowUpgrade(true),style:{
             flex:1,minWidth:200,fontFamily:mono,fontSize:13,fontWeight:700,letterSpacing:2,
             background:"linear-gradient(135deg,#dc2626,#b91c1c)",color:"#fff",border:"none",
             padding:"14px 20px",borderRadius:8,cursor:"pointer",
             boxShadow:"0 4px 20px rgba(220,38,38,.25)",display:"flex",alignItems:"center",justifyContent:"center",gap:8
           }},
-            el("span",{style:{fontSize:16}},"📄")," DOWNLOAD PDF"
+            el("span",{style:{fontSize:16}},isPaid?"📄":"🔒")," ",isPaid?"DOWNLOAD PDF":"DOWNLOAD PDF — UPGRADE"
           ),
-          el("button",{onClick:()=>downloadAsWord(getHTML(),"Resume"),style:{
+          el("button",{onClick:()=>isPaid?handleDownload("word"):setShowUpgrade(true),style:{
             flex:1,minWidth:200,fontFamily:mono,fontSize:13,fontWeight:700,letterSpacing:2,
             background:"linear-gradient(135deg,#2563eb,#1d4ed8)",color:"#fff",border:"none",
             padding:"14px 20px",borderRadius:8,cursor:"pointer",
             boxShadow:"0 4px 20px rgba(37,99,235,.25)",display:"flex",alignItems:"center",justifyContent:"center",gap:8
           }},
-            el("span",{style:{fontSize:16}},"📝")," DOWNLOAD WORD"
+            el("span",{style:{fontSize:16}},isPaid?"📝":"🔒")," ",isPaid?"DOWNLOAD WORD":"DOWNLOAD WORD — UPGRADE"
           )
         ),
 
-        // Secondary actions
+        // Secondary actions — no copy markdown for free users
         el("div",{style:{display:"flex",gap:10,marginBottom:20,flexWrap:"wrap"}},
-          el("button",{onClick:()=>{navigator.clipboard.writeText(cleanResume).catch(()=>{})},style:btnS("#38bdf8","rgba(56,189,248,.08)","rgba(56,189,248,.2)")},"📋 COPY MARKDOWN"),
+          isPaid&&el("button",{onClick:()=>handleDownload("copy"),style:btnS("#38bdf8","rgba(56,189,248,.08)","rgba(56,189,248,.2)")},"📋 COPY MARKDOWN"),
           el("button",{onClick:()=>{setStep(2);setResume("")},style:btnS("#a78bfa","rgba(139,92,246,.08)","rgba(139,92,246,.2)")},"🔄 NEW TARGET"),
           el("button",{onClick:()=>setStep(1),style:btnS("#64748b","none","rgba(71,85,105,.3)")},"← EDIT INTEL")
         ),
 
-        // Live Preview
+        // Live Preview — watermarked + protected if not paid
         el("div",{style:{marginBottom:8}},
           el("label",{style:{fontFamily:mono,fontSize:11,color:"#475569",letterSpacing:1}},"LIVE PREVIEW — "+STYLES[style].label+" STYLE")
         ),
-        el("div",{style:{
-          background:"#ffffff",
-          border:"1px solid rgba(71,85,105,.2)",borderRadius:12,padding:"40px 48px",
-          boxShadow:"0 4px 24px rgba(0,0,0,.15),0 1px 3px rgba(0,0,0,.1)",
-          maxWidth:700,margin:"0 auto"
-        }},getPreview()),
+        el("div",{
+          className:isPaid?"":"no-copy",
+          onContextMenu:isPaid?undefined:ev=>ev.preventDefault(),
+          onCopy:isPaid?undefined:ev=>ev.preventDefault(),
+          onDragStart:isPaid?undefined:ev=>ev.preventDefault(),
+          style:{position:"relative",overflow:"hidden",borderRadius:12,maxWidth:700,margin:"0 auto"}
+        },
+          // The actual resume
+          el("div",{style:{
+            background:"#ffffff",
+            border:"1px solid rgba(71,85,105,.2)",borderRadius:12,padding:"40px 48px",
+            boxShadow:"0 4px 24px rgba(0,0,0,.15),0 1px 3px rgba(0,0,0,.1)",
+            userSelect:isPaid?"auto":"none",WebkitUserSelect:isPaid?"auto":"none",
+          }},getPreview()),
+          // Watermark overlay (free users only)
+          !isPaid&&el("div",{style:{position:"absolute",inset:0,pointerEvents:"none",overflow:"hidden",borderRadius:12}},
+            // Diagonal repeating watermark
+            el("div",{style:{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%) rotate(-35deg)",width:"150%",display:"flex",flexDirection:"column",gap:60,alignItems:"center"}},
+              [-2,-1,0,1,2].map(n=>el("div",{key:n,style:{fontFamily:"Helvetica,Arial,sans-serif",fontSize:16,fontWeight:700,color:"rgba(124,58,237,0.12)",letterSpacing:6,whiteSpace:"nowrap",textTransform:"uppercase"}},"RESUMEWEAPON.COM   ✦   UPGRADE TO DOWNLOAD   ✦   RESUMEWEAPON.COM   ✦   UPGRADE TO DOWNLOAD"))
+            )
+          ),
+          // Bottom fade + CTA (free users only)
+          !isPaid&&el("div",{style:{position:"absolute",bottom:0,left:0,right:0,height:"45%",background:"linear-gradient(transparent,rgba(255,255,255,0.7) 30%,rgba(255,255,255,0.95) 70%,#fff)",display:"flex",alignItems:"flex-end",justifyContent:"center",paddingBottom:32,borderRadius:"0 0 12px 12px"}},
+            el("button",{onClick:()=>setShowUpgrade(true),style:{
+              fontFamily:mono,fontSize:14,fontWeight:700,letterSpacing:2,
+              background:"linear-gradient(135deg,#7c3aed,#6d28d9)",color:"#fff",
+              border:"none",padding:"16px 40px",borderRadius:10,cursor:"pointer",
+              boxShadow:"0 6px 24px rgba(124,58,237,.4)",
+              animation:"pulse 2s ease-in-out infinite"
+            }},"🔓 UNLOCK FULL RESUME")
+          )
+        ),
 
-        // Edit Prompt Box
+        // Upgrade banner (free users)
+        !isPaid&&el("div",{style:{marginTop:20,background:"linear-gradient(135deg,rgba(124,58,237,.08),rgba(56,189,248,.05))",border:"1px solid rgba(139,92,246,.25)",borderRadius:12,padding:"20px 24px",textAlign:"center"}},
+          el("p",{style:{fontFamily:mono,fontSize:12,color:"#a78bfa",letterSpacing:1,marginBottom:6,fontWeight:700}},"YOUR RESUME IS READY"),
+          el("p",{style:{fontSize:13,color:"#94a3b8",lineHeight:1.6,marginBottom:12}},"Unlock clean PDF & Word downloads without watermarks. Your tailored resume is one click away."),
+          el("button",{onClick:()=>setShowUpgrade(true),style:{fontFamily:mono,fontSize:13,fontWeight:700,letterSpacing:2,background:"linear-gradient(135deg,#7c3aed,#6d28d9)",color:"#fff",border:"none",padding:"12px 32px",borderRadius:8,cursor:"pointer",boxShadow:"0 4px 16px rgba(124,58,237,.3)"}},"VIEW PRICING →")
+        ),
+
+        // Edit Prompt Box (always available — keeps them engaged)
         el("div",{style:{marginTop:24,background:"rgba(15,23,42,.5)",border:"1px solid rgba(139,92,246,.2)",borderRadius:12,padding:20}},
           el("label",{style:{fontFamily:mono,fontSize:11,color:"#a78bfa",letterSpacing:1,display:"block",marginBottom:10}},"✏️ REFINE WITH AI"),
           el("div",{style:{display:"flex",gap:8}},
-            el("textarea",{value:editPrompt,onChange:ev=>setEditPrompt(ev.target.value),onKeyDown:ev=>{if(ev.key==="Enter"&&!ev.shiftKey){ev.preventDefault();editResume()}},placeholder:"e.g. Make the executive summary more concise... Reorder the Medproctor bullets to lead with channel partnerships... Add more metrics to the Axseter section...",rows:2,style:{...IS,flex:1,background:"rgba(15,23,42,.8)",padding:"10px 14px",resize:"none"}}),
+            el("textarea",{value:editPrompt,onChange:ev=>setEditPrompt(ev.target.value),onKeyDown:ev=>{if(ev.key==="Enter"&&!ev.shiftKey){ev.preventDefault();editResume()}},placeholder:"e.g. Make the executive summary more concise... Reorder bullets to lead with channel partnerships...",rows:2,style:{...IS,flex:1,background:"rgba(15,23,42,.8)",padding:"10px 14px",resize:"none"}}),
             el("button",{onClick:editResume,disabled:editing||!editPrompt.trim(),style:{
               fontFamily:mono,fontSize:12,fontWeight:700,letterSpacing:1,
               background:editing?"rgba(71,85,105,.3)":editPrompt.trim()?"linear-gradient(135deg,#7c3aed,#6d28d9)":"rgba(71,85,105,.3)",
@@ -496,10 +581,61 @@ function App(){
           el("div",{style:{fontSize:11,color:"#475569",marginTop:8,lineHeight:1.5}},"Press Enter to send. Shift+Enter for new line. The AI will edit the resume above based on your instructions.")
         ),
 
-        // Raw markdown
-        el("details",{style:{marginTop:16}},
+        // Raw markdown — only for paid users
+        isPaid&&el("details",{style:{marginTop:16}},
           el("summary",{style:{fontFamily:mono,fontSize:11,color:"#475569",cursor:"pointer",letterSpacing:1}},"VIEW RAW MARKDOWN"),
           el("pre",{style:{fontFamily:mono,fontSize:12,color:"#94a3b8",background:"rgba(15,23,42,.8)",border:"1px solid rgba(71,85,105,.2)",borderRadius:8,padding:16,marginTop:8,overflow:"auto",whiteSpace:"pre-wrap",lineHeight:1.5}},cleanResume)
+        ),
+
+        // Upgrade Modal
+        showUpgrade&&el("div",{style:{position:"fixed",inset:0,zIndex:1000,display:"flex",alignItems:"center",justifyContent:"center",padding:20}},
+          // Backdrop
+          el("div",{onClick:()=>setShowUpgrade(false),style:{position:"absolute",inset:0,background:"rgba(0,0,0,.7)",backdropFilter:"blur(4px)"}}),
+          // Modal
+          el("div",{style:{position:"relative",background:"linear-gradient(165deg,#0d1117,#0f0a1a)",border:"1px solid rgba(139,92,246,.3)",borderRadius:16,padding:"36px 32px",maxWidth:480,width:"100%",boxShadow:"0 24px 64px rgba(0,0,0,.5)"}},
+            el("button",{onClick:()=>setShowUpgrade(false),style:{position:"absolute",top:12,right:16,background:"none",border:"none",color:"#475569",fontSize:20,cursor:"pointer"}},"×"),
+            el("div",{style:{textAlign:"center",marginBottom:24}},
+              el("div",{style:{fontSize:36,marginBottom:8}},"⚡"),
+              el("h2",{style:{fontFamily:mono,fontSize:16,fontWeight:700,color:"#e2e8f0",letterSpacing:2,marginBottom:8}},"UNLOCK YOUR RESUME"),
+              el("p",{style:{fontSize:13,color:"#64748b",lineHeight:1.6}},"Your tailored resume is ready. Download clean PDF & Word files without watermarks.")
+            ),
+            // Pricing cards
+            el("div",{style:{display:"flex",flexDirection:"column",gap:12,marginBottom:20}},
+              // Single resume
+              el("button",{onClick:()=>startCheckout("single"),disabled:!!checkoutLoading,style:{
+                display:"flex",justifyContent:"space-between",alignItems:"center",
+                padding:"16px 20px",borderRadius:10,cursor:checkoutLoading?"wait":"pointer",
+                border:"2px solid rgba(56,189,248,.3)",background:"rgba(56,189,248,.05)",
+                transition:"all .2s"
+              }},
+                el("div",{style:{textAlign:"left"}},
+                  el("div",{style:{fontFamily:mono,fontSize:13,fontWeight:700,color:"#38bdf8",letterSpacing:1}},"SINGLE RESUME"),
+                  el("div",{style:{fontSize:12,color:"#64748b",marginTop:2}},"Download this resume — PDF + Word")
+                ),
+                el("div",{style:{fontFamily:mono,fontSize:22,fontWeight:700,color:"#38bdf8"}},checkoutLoading==="single"?"...":"$4.99")
+              ),
+              // Monthly
+              el("button",{onClick:()=>startCheckout("monthly"),disabled:!!checkoutLoading,style:{
+                display:"flex",justifyContent:"space-between",alignItems:"center",
+                padding:"16px 20px",borderRadius:10,cursor:checkoutLoading?"wait":"pointer",
+                border:"2px solid rgba(139,92,246,.4)",background:"rgba(139,92,246,.08)",
+                transition:"all .2s",position:"relative"
+              }},
+                el("div",{style:{position:"absolute",top:-10,right:12,fontFamily:mono,fontSize:9,fontWeight:700,color:"#fff",background:"linear-gradient(135deg,#7c3aed,#6d28d9)",padding:"3px 10px",borderRadius:10,letterSpacing:1}},"BEST VALUE"),
+                el("div",{style:{textAlign:"left"}},
+                  el("div",{style:{fontFamily:mono,fontSize:13,fontWeight:700,color:"#a78bfa",letterSpacing:1}},"UNLIMITED MONTHLY"),
+                  el("div",{style:{fontSize:12,color:"#64748b",marginTop:2}},"Unlimited resumes for every application")
+                ),
+                el("div",{style:{textAlign:"right"}},
+                  el("div",{style:{fontFamily:mono,fontSize:22,fontWeight:700,color:"#a78bfa"}},(checkoutLoading==="monthly"?"...":"$9.99")),
+                  el("div",{style:{fontSize:10,color:"#64748b"}},"/month")
+                )
+              )
+            ),
+            el("div",{style:{textAlign:"center"}},
+              el("p",{style:{fontSize:11,color:"#334155",fontFamily:mono,letterSpacing:1}},"SECURE CHECKOUT VIA STRIPE • CANCEL ANYTIME")
+            )
+          )
         )
       ),
 
