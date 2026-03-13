@@ -1,4 +1,4 @@
-export default async (req) => {
+export default async (req, context) => {
   if (req.method === "OPTIONS") {
     return new Response(null, {
       status: 204,
@@ -11,14 +11,17 @@ export default async (req) => {
   }
 
   if (req.method !== "POST") {
-    return Response.json({ error: "Method not allowed" }, { status: 405 });
+    return new Response(JSON.stringify({ error: "Method not allowed" }), {
+      status: 405,
+      headers: { "Content-Type": "application/json" },
+    });
   }
 
-  const apiKey = Netlify.env.get("ANTHROPIC_API_KEY");
+  const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) {
-    return Response.json(
-      { error: "ANTHROPIC_API_KEY not set. Add it in Netlify → Site settings → Environment variables." },
-      { status: 500, headers: { "Access-Control-Allow-Origin": "*" } }
+    return new Response(
+      JSON.stringify({ error: "ANTHROPIC_API_KEY not set in Netlify environment variables." }),
+      { status: 500, headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" } }
     );
   }
 
@@ -44,20 +47,14 @@ export default async (req) => {
 
     const data = await response.json();
 
-    if (!response.ok) {
-      return Response.json(
-        { error: data.error?.message || "Anthropic API error: " + response.status },
-        { status: response.status, headers: { "Access-Control-Allow-Origin": "*" } }
-      );
-    }
-
-    return Response.json(data, {
-      headers: { "Access-Control-Allow-Origin": "*" },
+    return new Response(JSON.stringify(data), {
+      status: response.status,
+      headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
     });
   } catch (err) {
-    return Response.json(
-      { error: "Server error: " + err.message },
-      { status: 500, headers: { "Access-Control-Allow-Origin": "*" } }
+    return new Response(
+      JSON.stringify({ error: "Server error: " + err.message }),
+      { status: 500, headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" } }
     );
   }
 };
@@ -65,14 +62,3 @@ export default async (req) => {
 export const config = {
   path: "/api/generate",
 };
-```
-
-- Click **Commit changes**
-
-**3.** Your repo should now look like:
-```
-index.html
-netlify.toml
-netlify/
-  functions/
-    generate.mjs
