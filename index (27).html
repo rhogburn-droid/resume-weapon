@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"/>
+<link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png"/>
+<title>Resume Weapon — Free ATS Resume Checker & AI Resume Builder</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+<link rel="icon" href="/favicon.png" type="image/png" sizes="32x32"/>
+<link rel="apple-touch-icon" href="/icon-192.png"/>
+<meta name="description" content="Free ATS resume checker that scores your resume against any job posting. AI-powered resume builder creates ATS-friendly, keyword-optimized resumes that pass applicant tracking systems and land interviews."/>
+<meta name="keywords" content="ats resume checker, ats checker, ats cv checker, free ats resume checker, ats score checker, ats friendly resume, applicant tracking system checker, resume checker, ats compliant resume, ai resume builder"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://atsresumechecker.io"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Resume Weapon — Free ATS Resume Checker & AI Resume Builder"/>
+<meta property="og:description" content="Beat the ATS. Upload your resume, paste any job posting, and get an ATS-optimized resume tailored with the exact keywords hiring managers are looking for."/>
+<meta property="og:url" content="https://atsresumechecker.io"/>
+<meta property="og:site_name" content="Resume Weapon"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Resume Weapon — Free ATS Resume Checker & AI Resume Builder"/>
+<meta name="twitter:description" content="AI-powered ATS resume checker and builder. Score your resume, optimize for applicant tracking systems, and land more interviews."/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Resume Weapon",
+  "description": "Free ATS resume checker and AI-powered resume builder that creates keyword-optimized, ATS-friendly resumes tailored to any job posting.",
+  "url": "https://atsresumechecker.io",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": [
+    {"@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Free ATS resume check and AI resume generation"},
+    {"@type": "Offer", "price": "4.99", "priceCurrency": "USD", "description": "Single resume download without watermarks"},
+    {"@type": "Offer", "price": "9.99", "priceCurrency": "USD", "description": "Unlimited monthly resume downloads"}
+  ],
+  "featureList": ["ATS Resume Checker", "AI Resume Builder", "Keyword Optimization", "ATS Score Check", "Multiple Resume Styles", "PDF & Word Download"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What is an ATS resume checker?", "acceptedAnswer": {"@type": "Answer", "text": "An ATS resume checker is a tool that analyzes your resume against a job posting to determine how well it will perform when scanned by applicant tracking systems (ATS). It checks for keyword matches, formatting compatibility, and gives you a score indicating your chances of passing automated screening."}},
+    {"@type": "Question", "name": "What is a good ATS score?", "acceptedAnswer": {"@type": "Answer", "text": "An ATS score of 80 or above is considered strong and means your resume is likely to pass most ATS filters. Scores between 60-79 indicate decent compatibility with room for improvement. Below 60 means significant gaps that could get your resume filtered out before a human sees it."}},
+    {"@type": "Question", "name": "How do I make my resume ATS-friendly?", "acceptedAnswer": {"@type": "Answer", "text": "To make your resume ATS-friendly: use keywords from the job description, stick to standard section headers like Professional Experience and Education, use a single-column layout, avoid tables and graphics, use standard fonts like Arial or Calibri, and save as .docx or PDF. Tailor your resume for each job application."}},
+    {"@type": "Question", "name": "Is Resume Weapon's ATS checker free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Resume Weapon's ATS resume checker is completely free. You can upload your resume, paste any job posting, and instantly see your ATS compatibility score with matched and missing keywords. The AI resume builder is also free to use. You only pay if you want to download the clean version without watermarks."}},
+    {"@type": "Question", "name": "How does the ATS score work?", "acceptedAnswer": {"@type": "Answer", "text": "Resume Weapon's ATS score analyzes your resume against the job posting by extracting keywords, skills, tools, certifications, and requirements from the job description, then checking which ones appear in your resume. The score (0-100) reflects keyword coverage, with multi-word skill phrases weighted more heavily than single words."}},
+    {"@type": "Question", "name": "Why do resumes get rejected by ATS?", "acceptedAnswer": {"@type": "Answer", "text": "Resumes get rejected by ATS for three main reasons: missing keywords from the job description, formatting issues like tables, columns, or graphics that confuse the parser, and file type problems. Over 75% of resumes are filtered out by ATS before a human recruiter ever sees them."}}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Check Your Resume's ATS Score",
+  "description": "Use Resume Weapon's free ATS resume checker to score your resume against any job posting and get a keyword-optimized version.",
+  "step": [
+    {"@type": "HowToStep", "position": 1, "name": "Upload Your Resume", "text": "Upload your existing resume in .docx, .pdf, or .txt format. You can also paste your LinkedIn profile and additional career details."},
+    {"@type": "HowToStep", "position": 2, "name": "Paste the Job Posting", "text": "Copy and paste the full job description you want to apply for. Choose your aggression level for resume optimization."},
+    {"@type": "HowToStep", "position": 3, "name": "Get Your ATS Score", "text": "Instantly see your ATS compatibility score (0-100) with a breakdown of matched keywords and missing keywords from the job posting."},
+    {"@type": "HowToStep", "position": 4, "name": "Build Optimized Resume", "text": "Our AI builds a tailored, ATS-optimized resume using your real experience and the exact keywords the ATS is scanning for. Download as PDF or Word."}
+  ]
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#111827;font-family:system-ui,sans-serif;color:#cbd5e1}
+#root{min-height:100vh}
+textarea:focus,input:focus{outline:none}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+@keyframes slideUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.no-copy{user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none}
+.no-copy *{user-select:none;-webkit-user-select:none}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:#111827}
+::-webkit-scrollbar-thumb{background:#334155;border-radius:3px}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17610829018"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-17610829018');
+gtag('config', 'G-6NM9DNGRS3');
+</script>
+</head>
+<body>
+<div id="root"></div>
+<script>
+const el=React.createElement;
+const{useState,useCallback,useRef,useEffect}=React;
+
+function extractText(file){return new Promise((res,rej)=>{const r=new FileReader();r.onload=ev=>res({name:file.name,content:ev.target.result,type:file.type});r.onerror=()=>rej();r.readAsText(file)})}
+function extractPDF(file){return new Promise((res,rej)=>{const r=new FileReader();r.onload=ev=>{try{const b=ev.target.result.split(",")[1];res({name:file.name,content:"[PDF: "+file.name+"]",rawBase64:b,type:"application/pdf"})}catch(x){res({name:file.name,content:"[PDF: "+file.name+"]",type:"application/pdf"})}};r.onerror=()=>rej();r.readAsDataURL(file)})}
+function extractDocx(file){return new Promise((res,rej)=>{const r=new FileReader();r.onload=ev=>{mammoth.extractRawText({arrayBuffer:ev.target.result}).then(result=>{res({name:file.name,content:result.value,type:file.type})}).catch(()=>rej(new Error("DOCX parse failed")))};r.onerror=()=>rej();r.readAsArrayBuffer(file)})}
+function isDocx(file){return file.name.toLowerCase().endsWith(".docx")||file.type==="application/vnd.openxmlformats-officedocument.wordprocessingml.document"}
+
+// --- Resume Style Renderers (return HTML strings for export) ---
+function parseResume(text){
+  const sections=[];let current=null;
+  text.split("\n").forEach(l=>{
+    if(l.startsWith("# ")){sections.push({type:"name",text:l.slice(2)});current=null}
+    else if(l.startsWith("## ")){current={type:"section",title:l.slice(3),items:[]};sections.push(current)}
+    else if(l.startsWith("### ")){if(current)current.items.push({type:"subtitle",text:l.slice(4)});else sections.push({type:"subtitle",text:l.slice(4)})}
+    else if(l.startsWith("- ")||l.startsWith("* ")){if(current)current.items.push({type:"bullet",text:l.slice(2)});else sections.push({type:"bullet",text:l.slice(2)})}
+    else if(l.startsWith("**")&&l.endsWith("**")){if(current)current.items.push({type:"bold",text:l.replace(/\*\*/g,"")});else sections.push({type:"bold",text:l.replace(/\*\*/g,"")})}
+    else if(l.trim()){if(current)current.items.push({type:"text",text:l.replace(/\*\*/g,"")});else sections.push({type:"text",text:l.replace(/\*\*/g,"")})}
+  });
+  return sections;
+}
+
+function classicHTML(text){
+  const s=parseResume(text);
+  let h='<div style="font-family:Georgia,\'Times New Roman\',serif;color:#1a1a1a;max-width:700px;margin:0 auto;padding:40px;line-height:1.5">';
+  s.forEach(item=>{
+    if(item.type==="name")h+='<h1 style="font-size:28px;font-weight:700;text-align:center;border-bottom:2px solid #333;padding-bottom:10px;margin-bottom:6px;letter-spacing:1px">'+item.text+'</h1>';
+    else if(item.type==="section"){
+      h+='<h2 style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:2px;border-bottom:1px solid #999;padding-bottom:4px;margin:20px 0 10px;color:#333">'+item.title+'</h2>';
+      item.items.forEach(it=>{
+        if(it.type==="subtitle")h+='<h3 style="font-size:15px;font-weight:700;margin:12px 0 3px;color:#1a1a1a">'+it.text+'</h3>';
+        else if(it.type==="bullet")h+='<div style="display:flex;gap:8px;margin:3px 0 3px 8px"><span style="color:#666;flex-shrink:0">•</span><span style="font-size:13.5px;color:#333">'+it.text+'</span></div>';
+        else if(it.type==="bold")h+='<p style="font-size:14px;font-weight:700;margin:8px 0 2px;color:#1a1a1a">'+it.text+'</p>';
+        else h+='<p style="font-size:13.5px;color:#333;margin:2px 0">'+it.text+'</p>';
+      });
+    }
+    else if(item.type==="text")h+='<p style="font-size:13.5px;color:#333;margin:3px 0;text-align:center">'+item.text+'</p>';
+    else if(item.type==="bullet")h+='<div style="display:flex;gap:8px;margin:3px 0"><span style="color:#666">•</span><span style="font-size:13.5px;color:#333">'+item.text+'</span></div>';
+  });
+  h+='</div>';return h;
+}
+
+function modernHTML(text){
+  const s=parseResume(text);
+  let h='<div style="font-family:\'Helvetica Neue\',Arial,sans-serif;color:#2d2d2d;max-width:700px;margin:0 auto;padding:40px;line-height:1.55">';
+  s.forEach(item=>{
+    if(item.type==="name")h+='<h1 style="font-size:32px;font-weight:300;letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;color:#1a1a1a;border-left:4px solid #2563eb;padding-left:16px">'+item.text+'</h1>';
+    else if(item.type==="section"){
+      h+='<h2 style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:3px;margin:24px 0 12px;color:#2563eb;display:flex;align-items:center;gap:10px">'+item.title+'<span style="flex:1;height:1px;background:linear-gradient(90deg,#2563eb33,transparent)"></span></h2>';
+      item.items.forEach(it=>{
+        if(it.type==="subtitle")h+='<h3 style="font-size:15px;font-weight:600;margin:14px 0 3px;color:#1a1a1a">'+it.text+'</h3>';
+        else if(it.type==="bullet")h+='<div style="display:flex;gap:10px;margin:4px 0 4px 4px"><span style="color:#2563eb;font-size:8px;margin-top:6px;flex-shrink:0">◆</span><span style="font-size:13px;color:#444">'+it.text+'</span></div>';
+        else if(it.type==="bold")h+='<p style="font-size:14px;font-weight:600;margin:10px 0 2px;color:#1a1a1a">'+it.text+'</p>';
+        else h+='<p style="font-size:13px;color:#444;margin:2px 0">'+it.text+'</p>';
+      });
+    }
+    else if(item.type==="text")h+='<p style="font-size:13px;color:#555;margin:3px 0">'+item.text+'</p>';
+  });
+  h+='</div>';return h;
+}
+
+function executiveHTML(text){
+  const s=parseResume(text);
+  let h='<div style="font-family:\'Palatino Linotype\',Palatino,Georgia,serif;color:#1a1a1a;max-width:700px;margin:0 auto;padding:40px 48px;line-height:1.6">';
+  s.forEach(item=>{
+    if(item.type==="name")h+='<h1 style="font-size:26px;font-weight:700;text-align:center;margin-bottom:4px;letter-spacing:4px;text-transform:uppercase;color:#1a1a1a">'+item.text+'</h1><div style="width:60px;height:2px;background:#8b6914;margin:8px auto 6px"></div>';
+    else if(item.type==="section"){
+      h+='<h2 style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:3px;margin:22px 0 10px;color:#8b6914;border-bottom:1px solid #d4b85c44;padding-bottom:4px">'+item.title+'</h2>';
+      item.items.forEach(it=>{
+        if(it.type==="subtitle")h+='<h3 style="font-size:15px;font-weight:700;margin:14px 0 3px;color:#1a1a1a;font-style:italic">'+it.text+'</h3>';
+        else if(it.type==="bullet")h+='<div style="display:flex;gap:10px;margin:4px 0 4px 4px"><span style="color:#8b6914;flex-shrink:0;margin-top:1px">▸</span><span style="font-size:13.5px;color:#2d2d2d">'+it.text+'</span></div>';
+        else if(it.type==="bold")h+='<p style="font-size:14px;font-weight:700;margin:10px 0 2px;color:#1a1a1a">'+it.text+'</p>';
+        else h+='<p style="font-size:13.5px;color:#2d2d2d;margin:2px 0">'+it.text+'</p>';
+      });
+    }
+    else if(item.type==="text")h+='<p style="font-size:13.5px;color:#2d2d2d;margin:3px 0;text-align:center">'+item.text+'</p>';
+  });
+  h+='</div>';return h;
+}
+
+// --- React preview renderers (for in-app display on dark background) ---
+function ri(text){
+  return text.split(/(\*\*[^*]+\*\*)/g).map((p,i)=>
+    p.startsWith("**")&&p.endsWith("**")?el("strong",{key:i,style:{fontWeight:600,color:"#1a1a1a"}},p.slice(2,-2)):p
+  );
+}
+
+function previewClassic(text){
+  return text.split("\n").map((l,i)=>{
+    if(l.startsWith("# "))return el("h1",{key:i,style:{fontSize:22,fontWeight:700,textAlign:"center",borderBottom:"2px solid #333",paddingBottom:8,marginBottom:6,letterSpacing:1,color:"#1a1a1a",fontFamily:"Georgia,serif"}},l.slice(2));
+    if(l.startsWith("## "))return el("h2",{key:i,style:{fontSize:11,fontWeight:700,textTransform:"uppercase",letterSpacing:2,borderBottom:"1px solid #999",paddingBottom:3,margin:"16px 0 8px",color:"#333",fontFamily:"Georgia,serif"}},l.slice(3));
+    if(l.startsWith("### "))return el("h3",{key:i,style:{fontSize:14,fontWeight:700,margin:"10px 0 3px",color:"#1a1a1a",fontFamily:"Georgia,serif"}},l.slice(4));
+    if(l.startsWith("- ")||l.startsWith("* "))return el("div",{key:i,style:{display:"flex",gap:8,margin:"2px 0 2px 8px"}},el("span",{style:{color:"#666"}},"•"),el("span",{style:{fontSize:13,color:"#333",lineHeight:1.5,fontFamily:"Georgia,serif"}},ri(l.slice(2))));
+    if(l.trim()==="")return el("div",{key:i,style:{height:4}});
+    return el("p",{key:i,style:{fontSize:13,color:"#333",margin:"2px 0",lineHeight:1.5,fontFamily:"Georgia,serif"}},ri(l));
+  });
+}
+
+function previewModern(text){
+  return text.split("\n").map((l,i)=>{
+    if(l.startsWith("# "))return el("h1",{key:i,style:{fontSize:24,fontWeight:300,letterSpacing:3,textTransform:"uppercase",marginBottom:6,color:"#1a1a1a",borderLeft:"4px solid #2563eb",paddingLeft:14,fontFamily:"system-ui,sans-serif"}},l.slice(2));
+    if(l.startsWith("## "))return el("h2",{key:i,style:{fontSize:10,fontWeight:600,textTransform:"uppercase",letterSpacing:3,margin:"20px 0 10px",color:"#2563eb",display:"flex",alignItems:"center",gap:10,fontFamily:"system-ui,sans-serif"}},l.slice(3),el("span",{style:{flex:1,height:1,background:"linear-gradient(90deg,#2563eb33,transparent)"}}));
+    if(l.startsWith("### "))return el("h3",{key:i,style:{fontSize:14,fontWeight:600,margin:"12px 0 3px",color:"#1a1a1a",fontFamily:"system-ui,sans-serif"}},l.slice(4));
+    if(l.startsWith("- ")||l.startsWith("* "))return el("div",{key:i,style:{display:"flex",gap:10,margin:"3px 0 3px 4px"}},el("span",{style:{color:"#2563eb",fontSize:7,marginTop:6}},"◆"),el("span",{style:{fontSize:12.5,color:"#444",lineHeight:1.55,fontFamily:"system-ui,sans-serif"}},ri(l.slice(2))));
+    if(l.trim()==="")return el("div",{key:i,style:{height:4}});
+    return el("p",{key:i,style:{fontSize:12.5,color:"#444",margin:"2px 0",lineHeight:1.55,fontFamily:"system-ui,sans-serif"}},ri(l));
+  });
+}
+
+function previewExecutive(text){
+  return text.split("\n").map((l,i)=>{
+    if(l.startsWith("# "))return el(React.Fragment,{key:i},el("h1",{style:{fontSize:21,fontWeight:700,textAlign:"center",letterSpacing:4,textTransform:"uppercase",color:"#1a1a1a",fontFamily:"Georgia,serif"}},l.slice(2)),el("div",{style:{width:50,height:2,background:"#8b6914",margin:"8px auto 6px"}}));
+    if(l.startsWith("## "))return el("h2",{key:i,style:{fontSize:11,fontWeight:700,textTransform:"uppercase",letterSpacing:3,margin:"18px 0 8px",color:"#8b6914",borderBottom:"1px solid #d4b85c44",paddingBottom:3,fontFamily:"Georgia,serif"}},l.slice(3));
+    if(l.startsWith("### "))return el("h3",{key:i,style:{fontSize:14,fontWeight:700,margin:"12px 0 3px",color:"#1a1a1a",fontStyle:"italic",fontFamily:"Georgia,serif"}},l.slice(4));
+    if(l.startsWith("- ")||l.startsWith("* "))return el("div",{key:i,style:{display:"flex",gap:10,margin:"3px 0 3px 4px"}},el("span",{style:{color:"#8b6914",marginTop:1}},"▸"),el("span",{style:{fontSize:13,color:"#2d2d2d",lineHeight:1.55,fontFamily:"Georgia,serif"}},ri(l.slice(2))));
+    if(l.trim()==="")return el("div",{key:i,style:{height:4}});
+    return el("p",{key:i,style:{fontSize:13,color:"#2d2d2d",margin:"2px 0",lineHeight:1.55,fontFamily:"Georgia,serif"}},ri(l));
+  });
+}
+
+// --- Download helpers ---
+const WATERMARK_TOP='<div style="text-align:center;padding:8px 0 12px;border-bottom:2px solid #7c3aed;margin-bottom:24px"><span style="font-family:Helvetica,Arial,sans-serif;font-size:10px;letter-spacing:3px;color:#7c3aed;text-transform:uppercase;font-weight:700">✦ Created with <a href="https://atsresumechecker.io" style="color:#7c3aed;text-decoration:none">ATSResumeChecker.io</a> ✦</span></div>';
+const WATERMARK_BOTTOM='<div style="text-align:center;padding:12px 0 8px;border-top:2px solid #7c3aed;margin-top:24px"><span style="font-family:Helvetica,Arial,sans-serif;font-size:10px;letter-spacing:3px;color:#7c3aed;text-transform:uppercase;font-weight:700">✦ Powered by <a href="https://atsresumechecker.io" style="color:#7c3aed;text-decoration:none">ATSResumeChecker.io</a> — AI Resume Builder ✦</span></div>';
+
+function downloadAsWord(html,filename){
+  const full='<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><style>body{margin:0.75in}</style></head><body>'+WATERMARK_TOP+html+WATERMARK_BOTTOM+'</body></html>';
+  const blob=new Blob([full],{type:"application/msword"});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement("a");a.href=url;a.download=filename+".doc";a.click();
+  URL.revokeObjectURL(url);
+}
+
+function downloadAsPDF(html,filename){
+  const win=window.open("","_blank","width=800,height=1000");
+  win.document.write('<!DOCTYPE html><html><head><meta charset="utf-8"><title>'+filename+'</title><style>@page{margin:0.6in}body{margin:0;padding:40px}a{color:#7c3aed;text-decoration:none}</style></head><body>'+WATERMARK_TOP+html+WATERMARK_BOTTOM+'</body></html>');
+  win.document.close();
+  setTimeout(()=>{win.print()},500);
+}
+
+const IS={width:"100%",fontSize:13,background:"rgba(30,41,59,.5)",border:"1px solid rgba(100,116,139,.25)",borderRadius:8,color:"#cbd5e1",padding:14,resize:"vertical",lineHeight:1.6,fontFamily:"inherit"};
+const mono="monospace";
+
+function App(){
+  const[step,setStep]=useState(1);
+  const[kb,setKb]=useState([]);
+  const[pasteMode,setPasteMode]=useState(false);
+  const[pasteText,setPasteText]=useState("");
+  const[shouldAutoCheck,setShouldAutoCheck]=useState(false);
+  const[li,setLi]=useState("");
+  const[extra,setExtra]=useState("");
+  const[job,setJob]=useState("");
+  const[resume,setResume]=useState("");
+  const[loading,setLoading]=useState(false);
+  const[err,setErr]=useState("");
+  const[prog,setProg]=useState("");
+  const[dare,setDare]=useState(2);
+  const[atsResult,setAtsResult]=useState(null);
+  const[newAtsResult,setNewAtsResult]=useState(null);
+  const[style,setStyle]=useState("modern");
+  const[editPrompt,setEditPrompt]=useState("");
+  const[editing,setEditing]=useState(false);
+  const[dragging,setDragging]=useState(false);
+  const[isPaid,setIsPaid]=useState(()=>{try{const p=localStorage.getItem("rw-paid");if(p){const d=JSON.parse(p);if(d.expires>Date.now())return true}return false}catch(e){return false}});
+  const[showUpgrade,setShowUpgrade]=useState(false);
+  const[checkoutLoading,setCheckoutLoading]=useState("");
+  const[subEmail,setSubEmail]=useState(()=>{try{return localStorage.getItem("rw-email")||""}catch(e){return""}});
+  const[upgradeStep,setUpgradeStep]=useState("choose"); // "choose" | "email" | "login"
+  const[emailErr,setEmailErr]=useState("");
+  const[checkingEmail,setCheckingEmail]=useState(false);
+
+  // Check URL for payment success
+  useEffect(()=>{
+    const params=new URLSearchParams(window.location.search);
+    if(params.get("paid")==="true"){
+      const expires=Date.now()+(30*24*60*60*1000); // 30 days
+      try{localStorage.setItem("rw-paid",JSON.stringify({expires}))}catch(e){}
+      setIsPaid(true);
+      // Restore resume state saved before checkout
+      try{
+        const saved=localStorage.getItem("rw-state");
+        if(saved){
+          const s=JSON.parse(saved);
+          if(s.resume){setResume(s.resume);setStep(3);window.scrollTo(0,0)}
+          if(s.style)setStyle(s.style);
+          localStorage.removeItem("rw-state");
+        }
+      }catch(e){}
+      window.history.replaceState({},"",window.location.pathname);
+    }
+    if(params.get("canceled")==="true"){
+      // Restore state on cancel too so they don't lose their resume
+      try{
+        const saved=localStorage.getItem("rw-state");
+        if(saved){
+          const s=JSON.parse(saved);
+          if(s.resume){setResume(s.resume);setStep(3);window.scrollTo(0,0)}
+          if(s.style)setStyle(s.style);
+          localStorage.removeItem("rw-state");
+        }
+      }catch(e){}
+      window.history.replaceState({},"",window.location.pathname);
+    }
+  },[]);
+
+  // Auto-check: when files are uploaded, instantly run format check and jump to results
+  useEffect(()=>{
+    if(shouldAutoCheck&&kb.length>0){
+      setShouldAutoCheck(false);
+      const kbT=kb.map(f=>f.content).join("\n\n");
+      const allSource=kbT+(pasteText.trim()?"\n\n"+pasteText.trim():"")+(li?"\n\n"+li:"")+(extra?"\n\n"+extra:"");
+      const result=analyzeFormat(allSource);
+      setAtsResult(result);
+      setStep(2);
+      window.scrollTo(0,0);
+      if(typeof gtag==="function")gtag("event","ats_score_checked",{event_category:"funnel",event_label:"auto_format_mode",value:result.score});
+    }
+  },[shouldAutoCheck,kb]);
+
+  const fRef=useRef(null);
+
+  const FINGERPRINT="<!-- RESUME-WEAPON-GENERATED -->";
+  const AI_PATTERNS=[
+    "RESUME-WEAPON-GENERATED","RESUME WEAPON v1","WEAPON DEPLOYED","DEPLOY WEAPON",
+    "[Contact Information]","[Dates from source","[Degree Information]","[University Name]",
+    "[Location]","[Date Range]","Dates from source material","[Your ","[Insert "
+  ];
+
+  // API helper — calls serverless function (key injected server-side)
+  const callClaude=useCallback(async(system,messages,maxTokens)=>{
+    const r=await fetch("/api/generate",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:maxTokens||4000,system:system,messages:messages})
+    });
+    if(!r.ok){const d=await r.json().catch(()=>({}));throw new Error(d.error?.message||d.error||"API error "+r.status)}
+    return r.json();
+  },[]);
+
+  const processFiles=useCallback(async(files)=>{
+    const out=[];const rejected=[];
+    for(const f of files){
+      try{
+        const parsed=f.type==="application/pdf"?await extractPDF(f):isDocx(f)?await extractDocx(f):await extractText(f);
+        const txt=(parsed.content||"").toLowerCase();
+        const isAI=AI_PATTERNS.some(p=>txt.includes(p.toLowerCase()));
+        if(isAI){rejected.push(f.name)}else{out.push(parsed)}
+      }catch(x){}
+    }
+    if(rejected.length){setErr("⚠ Blocked "+rejected.join(", ")+" — that looks like a previously generated or AI-created resume. Upload only your original resumes.");setTimeout(()=>setErr(""),8000)}
+    if(out.length){setKb(p=>[...p,...out]);setShouldAutoCheck(true);if(typeof gtag==="function")gtag("event","resume_uploaded",{event_category:"funnel",event_label:out.map(f=>f.name).join(","),value:out.length})}
+  },[]);
+
+  const upload=useCallback(async(ev)=>{
+    await processFiles(Array.from(ev.target.files));
+    ev.target.value="";
+  },[processFiles]);
+
+  const handleDrop=useCallback(async(ev)=>{
+    ev.preventDefault();ev.stopPropagation();setDragging(false);
+    const files=Array.from(ev.dataTransfer.files);
+    if(files.length)await processFiles(files);
+  },[processFiles]);
+
+  const handleDragOver=useCallback((ev)=>{ev.preventDefault();ev.stopPropagation();setDragging(true)},[]);
+  const handleDragLeave=useCallback((ev)=>{ev.preventDefault();ev.stopPropagation();setDragging(false)},[]);
+
+  const DLC={
+    1:{label:"SAFE",color:"#22c55e",desc:"Strictly factual, no reframing"},
+    2:{label:"BOLD",color:"#f59e0b",desc:"Confident framing, credible connections"},
+    3:{label:"AUDACIOUS",color:"#ef4444",desc:"Strongest truthful case possible"}
+  };
+
+  const STYLES={
+    classic:{label:"CLASSIC",icon:"📜",desc:"Traditional serif, timeless authority",color:"#94a3b8",border:"rgba(148,163,184,.3)"},
+    modern:{label:"MODERN",icon:"⚡",desc:"Clean sans-serif, sharp & contemporary",color:"#38bdf8",border:"rgba(56,189,248,.3)"},
+    executive:{label:"EXECUTIVE",icon:"👔",desc:"Premium serif, gold accents, C-suite energy",color:"#d4a535",border:"rgba(212,165,53,.3)"}
+  };
+
+  // ATS Analysis — client-side keyword extraction and scoring
+  function analyzeATS(resumeText,jobText,isOptimized){
+    const normalize=t=>t.toLowerCase().replace(/[^a-z0-9\s\-\/\+\#\.]/g," ").replace(/\s+/g," ").trim();
+    const resumeN=normalize(resumeText);
+    const jobN=normalize(jobText);
+    // Common stop words to ignore
+    const stops=new Set(["the","and","for","are","but","not","you","all","any","can","had","her","was","one","our","out","has","its","let","say","she","too","use","way","who","did","get","got","him","his","how","its","may","new","now","old","see","two","also","back","been","call","came","come","each","find","from","give","good","have","help","here","high","just","keep","know","last","long","look","made","make","many","more","most","much","must","name","need","next","only","open","over","part","plan","same","some","such","sure","take","tell","than","that","them","then","they","this","time","very","want","well","went","what","when","will","with","work","year","your","about","after","being","below","could","every","first","found","great","house","large","later","never","often","other","place","point","right","shall","since","small","state","still","their","there","these","thing","think","those","three","under","until","using","where","which","while","world","would","above","along","might","should","before","between","during","through","within","without","across","against","around","because","become","before","beyond","during","either","enough","indeed","inside","likely","nearly","rather","really","simply","toward","unless","unlike"]);
+    // Extract meaningful phrases and keywords from job posting
+    const extractKeywords=(text)=>{
+      const words=text.split(/\s+/).filter(w=>w.length>2&&!stops.has(w));
+      const phrases=new Set();
+      // Single important words
+      words.forEach(w=>{if(w.length>3)phrases.add(w)});
+      // 2-word and 3-word phrases
+      const wArr=text.split(/\s+/);
+      for(let i=0;i<wArr.length-1;i++){
+        const p2=wArr[i]+" "+wArr[i+1];
+        if(p2.length>5&&!stops.has(wArr[i])&&!stops.has(wArr[i+1]))phrases.add(p2);
+        if(i<wArr.length-2){const p3=p2+" "+wArr[i+2];if(p3.length>8)phrases.add(p3)}
+      }
+      return phrases;
+    };
+    // Focus on skill-like and requirement-like keywords
+    const skillPatterns=/(?:experience|proficiency|knowledge|skills?|expertise|ability|competenc|familiar|understanding|background)\s+(?:in|with|of)\s+([^.,;]+)/gi;
+    const reqPatterns=/(?:required|preferred|desired|must have|should have|minimum|qualifications?)[:\s]+([^.]+)/gi;
+    const toolPatterns=/\b(salesforce|hubspot|excel|python|java|sql|aws|azure|gcp|tableau|power bi|jira|slack|sap|oracle|workday|figma|sketch|react|node|docker|kubernetes|git|agile|scrum|meddic|meddpicc|six sigma|lean|pmp|cpa|cfa|hipaa|ferpa|gdpr|saas|b2b|b2c|crm|erp|api|ai|ml|nlp|roi|kpi|okr|p&l|arr|mrr|nrr|ltv|cac)\b/gi;
+    const yearPatterns=/(\d+)\+?\s*years?/gi;
+    const degreePatterns=/\b(bachelor|master|mba|phd|doctorate|bs|ba|ms|ma|b\.s|m\.s|m\.b\.a)\b/gi;
+    
+    // Extract from job
+    const jobKeywords=new Set();
+    let m;
+    // Tools and tech
+    while((m=toolPatterns.exec(jobN))!==null)jobKeywords.add(m[1].toLowerCase());
+    toolPatterns.lastIndex=0;
+    // Skill phrases
+    while((m=skillPatterns.exec(jobN))!==null){m[1].trim().split(/,|and/).forEach(s=>{const t=s.trim();if(t.length>3)jobKeywords.add(t)})}
+    // Year requirements
+    while((m=yearPatterns.exec(jobN))!==null)jobKeywords.add(m[0]);
+    // Degrees
+    while((m=degreePatterns.exec(jobN))!==null)jobKeywords.add(m[1].toLowerCase());
+    // Important nouns from job (filter aggressively)
+    const jobWords=jobN.split(/\s+/).filter(w=>w.length>4&&!stops.has(w));
+    const wordFreq={};
+    jobWords.forEach(w=>{wordFreq[w]=(wordFreq[w]||0)+1});
+    Object.entries(wordFreq).filter(([w,c])=>c>=2).forEach(([w])=>jobKeywords.add(w));
+    // 2-word job phrases that appear important
+    const jArr=jobN.split(/\s+/);
+    for(let i=0;i<jArr.length-1;i++){
+      const p=jArr[i]+" "+jArr[i+1];
+      if(p.length>8&&!stops.has(jArr[i])&&!stops.has(jArr[i+1])){
+        const freq=jobN.split(p).length-1;
+        if(freq>=2)jobKeywords.add(p);
+      }
+    }
+    // Remove very generic terms
+    const generic=new Set(["position","company","team","role","will","including","working","ability","experience","strong","excellent","responsibilities","requirements","qualifications","preferred","required","opportunity","looking","candidate","apply","description","information","equal","employment","provide","support","develop","driving","present","growth","market","build","drive","success","business","location","employee","education","professional","performance","management","solutions","customers","strategic","competitive","platform","relationships","aligned","insurance","security","quarterly","targets","enterprise","ability to","committed","ensure","within","across","based","leverage","utilize","various","multiple","relevant","related","effectively","demonstrated","proven","responsible","oversee","manage","maintain","create","establish","implement","execute","deliver","lead","coordinate","collaborate","identify","monitor","review","assess","evaluate","report","communicate","engage","participate","contribute","achieve","improve","enhance","increase","reduce","optimize","analyze","process","plan","design","develop","prepare","conduct","handle","assist","facilitate","organize","direct","guide","mentor","train","advise","recommend","determine","resolve","address","track","update","other","also","well","high","level","work","make","take","help","know","need","part","come","year","time","good","long","open","right","same","last","next","much","such","each","both","than","them","been","were","have","been","would","could","should","about","after","every","first","found","great","their","there","these","thing","think","those","three","being","below","might","before","between","during","through"]);
+    generic.forEach(g=>jobKeywords.delete(g));
+    // Also remove single words under 5 chars (too generic)
+    jobKeywords.forEach(kw=>{if(kw.length<5&&!kw.includes(" "))jobKeywords.delete(kw)});
+    
+    // Match against resume
+    const matched=[];const missing=[];
+    jobKeywords.forEach(kw=>{
+      if(resumeN.includes(kw))matched.push(kw);
+      else missing.push(kw);
+    });
+    // Sort by relevance (longer phrases first, they're more specific)
+    matched.sort((a,b)=>b.length-a.length);
+    missing.sort((a,b)=>b.length-a.length);
+    // Deduplicate (remove substrings of longer matches)
+    const dedup=(arr)=>{const result=[];arr.forEach(item=>{if(!result.some(r=>r!==item&&r.includes(item)))result.push(item)});return result};
+    const mFinal=dedup(matched).slice(0,30);
+    const miFinal=dedup(missing).slice(0,25);
+    // Score: weighted — matched keywords matter more if they're longer/more specific
+    const totalWeight=mFinal.length+miFinal.length;
+    const matchWeight=mFinal.reduce((s,k)=>s+(k.split(" ").length>1?2.5:1),0);
+    const totalW=matchWeight+miFinal.reduce((s,k)=>s+(k.split(" ").length>1?2.5:1),0);
+    const rawScore=totalW>0?Math.round((matchWeight/totalW)*100):0;
+    // Clamp and add baseline (resume has some inherent value)
+    const score=isOptimized?Math.min(92,Math.max(72,Math.round(rawScore*0.45+55))):Math.min(99,Math.max(8,Math.round(rawScore*0.9+8)));
+    return{score,matched:mFinal,missing:miFinal,total:mFinal.length+miFinal.length};
+  }
+
+  const runATSCheck=useCallback(()=>{
+    if(!job.trim()){setErr("Paste a job posting first.");return}
+    if(!kb.length&&!li&&!extra&&!pasteText.trim()){setErr("Add at least one source.");return}
+    setErr("");
+    const kbT=kb.map(f=>f.content).join("\n\n");
+    const allSource=kbT+(pasteText.trim()?"\n\n"+pasteText.trim():"")+(li?"\n\n"+li:"")+(extra?"\n\n"+extra:"");
+    const result=analyzeATS(allSource,job);
+    setAtsResult(result);
+    setStep(2);
+    if(typeof gtag==="function")gtag("event","ats_score_checked",{event_category:"funnel",event_label:"keyword_mode",value:result.score});
+  },[job,kb,li,extra,pasteText]);
+
+  // General ATS format check (no job posting needed)
+  function analyzeFormat(text){
+    const checks=[];const issues=[];let score=0;
+    const lower=text.toLowerCase();
+    const lines=text.split("\n").filter(l=>l.trim());
+    // Contact info (basic)
+    if(/[\w.+-]+@[\w.-]+\.\w+/.test(text)){checks.push("Email address found");score+=3}else{issues.push("Missing email address")}
+    if(/\d{3}[-.]?\d{3}[-.]?\d{4}/.test(text)){checks.push("Phone number found");score+=3}else{issues.push("Missing phone number")}
+    if(/linkedin\.com/i.test(text)){checks.push("LinkedIn URL included");score+=3}else{issues.push("No LinkedIn profile URL — 40% of recruiters check LinkedIn")}
+    // Sections
+    if(/experience|professional|employment|work history/i.test(text)){checks.push("Work experience section found");score+=4}else{issues.push("Missing work experience section")}
+    if(/education|academic|degree/i.test(text)){checks.push("Education section found");score+=3}else{issues.push("Missing education section")}
+    if(/skills|competenc|expertise|proficienc/i.test(text)){checks.push("Skills section found");score+=3}else{issues.push("Missing skills/competencies section")}
+    if(/summary|objective|profile|overview/i.test(text)){checks.push("Professional summary found");score+=3}else{issues.push("No professional summary — top section recruiters read first")}
+    // Quantified achievements
+    const metrics=(text.match(/\$[\d,.]+|\d+%|\d+\+?\s*(million|billion|year|month|client|customer|team|member|employee|account|state|region|unit)/gi)||[]);
+    if(metrics.length>=10){checks.push("Good use of metrics ("+metrics.length+" found)");score+=5}
+    else if(metrics.length>=5){checks.push("Some metrics ("+metrics.length+" found)");score+=3;issues.push("Add more quantified achievements — aim for 15+")}
+    else{issues.push("Very few measurable achievements — top resumes have 15+ metrics");score+=1}
+    // Action verbs
+    const actionVerbs=/\b(led|managed|built|launched|grew|increased|reduced|developed|implemented|created|established|drove|generated|achieved|exceeded|negotiated|delivered|directed|expanded|optimized|transformed|orchestrated|accelerated|secured|closed)\b/gi;
+    const verbCount=(text.match(actionVerbs)||[]).length;
+    if(verbCount>=15){checks.push("Strong action verbs ("+verbCount+" found)");score+=5}
+    else if(verbCount>=8){checks.push("Some action verbs ("+verbCount+")");score+=3;issues.push("Increase action verb variety — top resumes use 15+")}
+    else{issues.push("Weak action verbs — start every bullet with Led, Built, Grew, etc.");score+=1}
+    // Length
+    if(lines.length>=20&&lines.length<=80){checks.push("Good resume length");score+=3}
+    else if(lines.length<20){issues.push("Resume too short — add more detail");score+=1}
+    else{issues.push("Resume may be too long — ATS prefers 1-2 pages");score+=1}
+    // Formatting red flags
+    if(/[|│┃]/.test(text)){issues.push("Contains pipe characters — may indicate columns (ATS can misread)")}else{score+=2}
+    if(text.length>0&&lines.length>0){checks.push("Resume is parseable text");score+=2}
+    // Dates
+    const dates=(text.match(/(?:19|20)\d{2}/g)||[]);
+    if(dates.length>=2){checks.push("Employment dates found");score+=3}else{issues.push("Missing or unclear employment dates")}
+    // HARDER CHECKS — these create the gap for improvement
+    // Bullet consistency
+    const bullets=(text.match(/^[\s]*[-•◆▸*]\s/gm)||[]);
+    if(bullets.length>=15){checks.push("Consistent bullet formatting");score+=3}
+    else{issues.push("Inconsistent bullet formatting — use uniform bullet style throughout");score+=1}
+    // ATS keyword density
+    const wordCount=text.split(/\s+/).length;
+    const skillTerms=(lower.match(/\b(saas|crm|erp|roi|kpi|p&l|arr|mrr|nrr|gtm|sql|api|ai|ml|b2b|b2c|agile|scrum|salesforce|hubspot|excel|python|tableau|jira|hipaa|ferpa|gdpr|sox)\b/gi)||[]);
+    if(skillTerms.length>=10){checks.push("Good keyword density");score+=3}
+    else{issues.push("Low ATS keyword density — add more industry-specific terms and acronyms");score+=1}
+    // Tailoring check (always fails without a job posting)
+    issues.push("Resume not tailored to a specific job posting — tailored resumes score 3x higher with ATS");
+    // Power language
+    const weakPhrases=(lower.match(/\b(responsible for|duties included|helped with|assisted in|worked on|participated in|was involved|tasked with)\b/g)||[]);
+    if(weakPhrases.length===0){checks.push("No weak passive language");score+=3}
+    else{issues.push("Contains "+weakPhrases.length+" weak phrases ('responsible for', 'helped with') — replace with action verbs");score+=0}
+    // Accomplishment vs duty ratio
+    const accomplishments=(text.match(/\b(increased|grew|reduced|saved|generated|achieved|exceeded|delivered|closed|won|launched|built|scaled|expanded)\b/gi)||[]).length;
+    const duties=(text.match(/\b(responsible|manage|oversee|handle|maintain|coordinate|assist|support|ensure)\b/gi)||[]).length;
+    if(accomplishments>duties){checks.push("Accomplishment-focused language");score+=3}
+    else{issues.push("Too many duty-based phrases — rewrite bullets as accomplishments with results");score+=1}
+    // Modern formatting
+    if(/core competenc|key skills|areas of expertise/i.test(text)){checks.push("Has competency section");score+=2}
+    else{issues.push("Add a Core Competencies section — ATS scans this for quick keyword matching")}
+    // Section order optimization
+    issues.push("Section ordering may not be optimized for ATS priority scanning");
+    // Cap score
+    score=Math.min(score,99);
+    return{score,checks,issues,isGeneral:true};
+  }
+
+  const runGeneralCheck=useCallback(()=>{
+    if(!kb.length&&!li&&!extra&&!pasteText.trim()){setErr("Upload a resume first.");return}
+    setErr("");
+    const kbT=kb.map(f=>f.content).join("\n\n");
+    const allSource=kbT+(pasteText.trim()?"\n\n"+pasteText.trim():"")+(li?"\n\n"+li:"")+(extra?"\n\n"+extra:"");
+    const result=analyzeFormat(allSource);
+    setAtsResult(result);
+    setStep(2);
+    if(typeof gtag==="function")gtag("event","ats_score_checked",{event_category:"funnel",event_label:"format_mode",value:result.score});
+  },[kb,li,extra,pasteText]);
+
+  // Client-side resume parser — no API call needed
+  function parseSource(text){
+    const lines=text.split("\n").map(l=>l.trim()).filter(Boolean);
+    const result={name:"",email:"",phone:"",location:"",linkedin:"",companies:[],education:[],allText:text};
+    // Name: usually first non-empty line or line with all caps
+    for(const l of lines){const clean=l.replace(/\*\*/g,"").replace(/[#*_]/g,"").trim();if(clean&&/^[A-Z][a-z]+ [A-Z]/.test(clean)&&clean.split(" ").length<=4&&!clean.includes("@")){result.name=clean;break}}
+    // Contact info
+    const emailM=text.match(/[\w.+-]+@[\w.-]+\.\w+/);if(emailM)result.email=emailM[0];
+    const phoneM=text.match(/\d{3}[-.]?\d{3}[-.]?\d{4}/);if(phoneM)result.phone=phoneM[0];
+    const locM=text.match(/([A-Z][a-z]+(?:\s[A-Z][a-z]+)*),\s*([A-Z]{2})\b/);if(locM)result.location=locM[0];
+    const liM=text.match(/linkedin\.com\/in\/[\w-]+/);if(liM)result.linkedin=liM[0];
+    // Companies: look for patterns like **COMPANY** | City or COMPANY | City or bold company names followed by titles
+    const companyPatterns=[
+      /\*\*([A-Z][A-Z\s&.,/]+(?:LLC|INC|CORP|GROUP|SYSTEMS|CO)?)\*\*\s*[|\\\u2013–-]\s*(.+)/gi,
+      /\b([A-Z][A-Z\s&.,/]{3,}(?:LLC|INC|CORP|GROUP|SYSTEMS|CO)?)\s*[|\\\u2013–-]\s*([A-Za-z\s,]+)/g,
+      /(?:^|\n)\s*(?:\*\*)?([A-Z][A-Z\s&.,/]+(?:LLC|INC|CORP|GROUP|SYSTEMS|CO)?)(?:\*\*)?\s*$/gm
+    ];
+    const foundCompanies=new Set();
+    for(const pat of companyPatterns){let m;while((m=pat.exec(text))!==null){const name=m[1].replace(/\*\*/g,"").trim();if(name.length>2&&name.length<60&&!/^(CORE|PROFESSIONAL|EXECUTIVE|EDUCATION|REVENUE|SALES|EARLY|TOOLS|KEY)/i.test(name))foundCompanies.add(name)}}
+    // Titles: look for patterns like **Title** Year – Year or *Title* Year
+    const titlePat=/\*\*([^*]{5,80})\*\*\s*((?:19|20)\d{2})\s*[–\-\u2013]\s*((?:19|20)\d{2}|Present)/gi;
+    let tm;const roles=[];
+    while((tm=titlePat.exec(text))!==null){roles.push({title:tm[1].trim(),startDate:tm[2],endDate:tm[3]})}
+    // Match roles to companies
+    const companyArr=Array.from(foundCompanies);
+    for(const role of roles){
+      // Find nearest company above this role in the text
+      const roleIdx=text.indexOf(role.title);
+      let bestCompany="";let bestDist=Infinity;
+      for(const c of companyArr){const ci=text.indexOf(c);if(ci>=0&&ci<roleIdx&&(roleIdx-ci)<bestDist){bestDist=roleIdx-ci;bestCompany=c}}
+      // Collect bullets after this role
+      const roleLineIdx=text.indexOf(role.title);
+      const afterRole=text.slice(roleLineIdx);
+      const bulletMatches=afterRole.match(/[-•◆\*]\s+.{10,}/g)||[];
+      const bullets=bulletMatches.slice(0,15).map(b=>b.replace(/^[-•◆\*]\s+/,"").replace(/\*\*/g,"").trim());
+      result.companies.push({company:bestCompany||"Unknown",title:role.title,dates:role.startDate+" – "+role.endDate,bullets:bullets});
+    }
+    // If no roles found via pattern, try simpler extraction
+    if(!result.companies.length&&companyArr.length){companyArr.forEach(c=>result.companies.push({company:c,title:"",dates:"",bullets:[]}))}
+    // Education
+    const eduPats=[/M\.?B\.?A\.?[,\s]+([^\n|]+)/gi,/M\.?A\.?[,\s]+([^\n|]+)/gi,/B\.?S\.?[,\s]+([^\n|]+)/gi,/Master[s']?\s+(?:of\s+)?([^\n|]+)/gi,/Bachelor[s']?\s+(?:of\s+)?([^\n|]+)/gi];
+    for(const ep of eduPats){let em;while((em=ep.exec(text))!==null){result.education.push(em[0].replace(/\*\*/g,"").trim())}}
+    return result;
+  }
+
+  const generate=useCallback(async()=>{
+    if(!kb.length&&!li&&!extra&&!pasteText.trim()){setErr("Add at least one source.");return}
+    setErr("");setLoading(true);setResume("");setProg("Extracting your career data...");
+    const kbT=kb.map(f=>"--- "+f.name+" ---\n"+f.content).join("\n\n");
+    const allSource=kbT+(pasteText.trim()?"\n\n"+pasteText.trim():"")+(li?"\n\n"+li:"")+(extra?"\n\n"+extra:"");
+
+    // CLIENT-SIDE EXTRACTION (instant — no API call)
+    const extracted=parseSource(allSource);
+    const realCompanies=extracted.companies.map(c=>c.company).filter(Boolean);
+    const realTitles=extracted.companies.map(c=>c.title).filter(Boolean);
+    const companyList=realCompanies.join(", ")||"(see source text)";
+    const titleList=realTitles.join(", ")||"(see source text)";
+    const eduList=extracted.education.length?extracted.education.join("; "):"(see source text)";
+
+    setProg("Writing tailored resume...");
+
+    const hasJob=job.trim().length>0;
+    const di={
+      1:"Conservative: Keep titles and framing close to the originals. Minimal rewording. Standard professional language.",
+      2:"Bold but credible: Reframe titles and bullet descriptions to align with the target role. For example, 'CEO & CRO' can become 'Co-Founder & Head of Sales' for a sales role. Reword bullet DESCRIPTIONS with confident language. BUT: never change company names, dates, degree names, school names, metrics, dollar amounts, percentages, team sizes, or any other hard facts. Those must appear exactly as in the source.",
+      3:"Audacious but honest: Push title reframing and bullet rewording as far as defensible. Reorganize sub-sections to lead with relevance. BUT: never change company names, dates, degree names, school names, metrics, dollar amounts, percentages, team sizes, or any other hard facts. Those must appear exactly as in the source. If a requirement has no match, skip it."
+    };
+
+    const lockedFacts="=== LOCKED FACTS — NEVER CHANGE THESE ===\nThe following must appear EXACTLY as written:\n\n• Company names: "+companyList+"\n• Employment dates: copy exactly from source\n• Education degrees: "+eduList+"\n• School names: copy exactly from source\n• Specific metrics: all dollar amounts, percentages, team sizes, and numbers must be copied EXACTLY\n• Contact info: name, email, phone, location, LinkedIn — copy exactly\n\nChanging a degree from 'B.S. in Finance' to 'Bachelor of Science in Business Administration' is a VIOLATION.\nChanging '$10M ARR' to '$12M ARR' is a VIOLATION.\n\n=== HARD CONSTRAINT ===\nThe candidate has worked at ONLY these companies: "+companyList+"\nCandidate name: "+extracted.name+"\nAny company NOT in that list is FABRICATED.\nDo NOT use placeholder text like '[Dates]' or '[Contact Info]'. Use actual data from the source.";
+
+    const formatInstructions="=== STYLE & FORMAT ===\n\nThe resume must follow this markdown structure:\n\n```\n# CANDIDATE NAME\nCity, ST • email • phone • linkedin\n\n*Title • Key Theme • Key Theme*\n\n## Executive Summary\n3-5 sentences in natural, confident prose.\n\n## Core Competencies\nThree rows of 3 competencies each, separated by bullets (•).\n\n## Professional Experience\n\n**COMPANY NAME** | City, ST\n*One-line company description*\n\n**Job Title** Year – Year\n\nBold-italic sub-section headers followed by bullets.\n\n## Education\n**Degree** | School | Honors — COPY EXACTLY FROM SOURCE\n\n## Expertise\n3-4 bold category labels each followed by a comma-separated skill list.\n```\n\nWrite like a sharp human executive. Be specific and direct. No AI filler language. Avoid: leverage, utilize, spearhead, synergy, cutting-edge.\n\nOutput ONLY the resume in markdown. No commentary.";
+
+    const sys2=hasJob?
+      "You are an expert resume writer. You write like a confident professional, not like an AI. You ONLY use the candidate's real data.\n\n"+lockedFacts+"\n\n=== WHAT YOU MAY CHANGE ===\n• Job titles (slight reframing to match target role)\n• Bullet point descriptions (reword for relevance)\n• Sub-section organization and ordering\n• Core competencies keywords\n• Executive summary prose\n• Company descriptions\n\n=== STRATEGY: "+DLC[dare].label+" ===\n"+di[dare]+"\n\n"+formatInstructions:
+      "You are an expert resume writer specializing in ATS optimization. Your job is to take the candidate's existing resume and rewrite it with perfect ATS-friendly formatting, strong action verbs, quantified achievements, and professional structure — while keeping ALL facts exactly as they are.\n\n"+lockedFacts+"\n\n=== WHAT YOU MAY CHANGE ===\n• Bullet point descriptions (reword with stronger action verbs and better phrasing)\n• Organization and section ordering\n• Professional summary prose (make it compelling)\n• Skills section (organize clearly)\n• Sub-section groupings\n\n"+formatInstructions;
+
+    const msg2=hasJob?
+      "=== CANDIDATE'S FULL SOURCE TEXT ===\n"+allSource+"\n\n=== LOCKED DATA (copy exactly) ===\nCompanies: "+companyList+"\nEducation: "+eduList+"\nName: "+(extracted.name||"see source")+"\n\n=== TARGET JOB POSTING ===\n"+job+"\n\n=== ATS KEYWORD GAP — CRITICAL ===\nMISSING KEYWORDS (incorporate these):\n"+(atsResult&&atsResult.missing?atsResult.missing.join("\n- "):"(none)")+"\n\nALREADY MATCHED (keep these):\n"+(atsResult&&atsResult.matched?atsResult.matched.join(", "):"(none)")+"\n\n=== HOW TO INCORPORATE ===\n1. Core Competencies: include missing skill terms\n2. Executive Summary: weave 3-5 missing keywords in\n3. Bullet points: use the exact missing phrases from the job posting\n4. Sub-section headers: use job posting terminology\n5. Expertise section: add missing tools and methodologies\n\nDo NOT fabricate experience. Use the JOB POSTING'S exact language to describe real experience.\n\n=== INSTRUCTION ===\nWrite a polished resume. Education, companies, dates, metrics VERBATIM from source. Incorporate missing keywords where the candidate has real experience.":
+      "=== CANDIDATE'S FULL SOURCE TEXT ===\n"+allSource+"\n\n=== LOCKED DATA (copy exactly) ===\nCompanies: "+companyList+"\nEducation: "+eduList+"\nName: "+(extracted.name||"see source")+"\n\n=== INSTRUCTION ===\nRewrite this resume with perfect ATS-friendly formatting. Your goals:\n1. Strong executive summary with specific achievements\n2. Clear Core Competencies section with relevant industry skills\n3. Bullet points that start with strong action verbs and include metrics\n4. Sub-section headers that organize experience thematically\n5. Clean Expertise section at the bottom with categorized skills\n6. Education copied VERBATIM\n7. All facts, companies, dates, and metrics EXACTLY as in source\n\nMake every bullet impactful. Replace weak verbs with strong ones. Add context to bare metrics. The resume should read like a top executive wrote it.";
+
+    try{
+      const r2=await fetch("/api/generate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:4000,system:sys2,messages:[{role:"user",content:msg2}]})});
+      if(!r2.ok){const d=await r2.json().catch(()=>({}));throw new Error(d.error?.message||"API error "+r2.status)}
+      const d2=await r2.json();
+      let output=d2.content.filter(b=>b.type==="text").map(b=>b.text).join("\n");
+
+      // POST-VALIDATION: Check for hallucinated companies
+      setProg("Validating...");
+      const outputLower=output.toLowerCase();
+      let hallucinated=false;const badCompanies=[];
+      const halluPatterns=["nsight health","mira health","medtech solutions","healthcare it corp","health data analytics"];
+      for(const hp of halluPatterns){if(outputLower.includes(hp)&&!allSource.toLowerCase().includes(hp)){hallucinated=true;badCompanies.push(hp)}}
+      if(/\[dates?\s*(from|per)/i.test(output)||/\[contact/i.test(output)||/\[institution/i.test(output)||/\[location\]/i.test(output)){hallucinated=true;badCompanies.push("placeholder text")}
+
+      if(hallucinated){
+        setErr("⚠ Output contained fabricated data ("+badCompanies.join(", ")+"). Blocked. Try regenerating.");
+        setProg("");setLoading(false);return;
+      }
+
+      setResume(output+"\n\n"+FINGERPRINT);
+      // Score the new resume against the job posting
+      const newScore=hasJob?analyzeATS(output,job,true):Object.assign(analyzeFormat(output),{score:Math.min(92,Math.max(72,analyzeFormat(output).score+20))});
+      setNewAtsResult(newScore);
+      setProg("");setStep(3);window.scrollTo(0,0);
+      if(typeof gtag==="function")gtag("event","resume_generated",{event_category:"funnel",event_label:hasJob?"keyword_mode":"format_mode",value:newScore.score});
+    }catch(x){setErr("Generation failed: "+x.message);setProg("")}
+    finally{setLoading(false)}
+  },[job,kb,li,extra,dare,pasteText]);
+
+  const cleanResume=resume.replace(FINGERPRINT,"").trim();
+
+  const editResume=useCallback(async()=>{
+    if(!editPrompt.trim()||!resume)return;
+    setEditing(true);
+    try{
+      const r=await fetch("/api/generate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:4000,
+        system:"You are editing an existing resume based on the user's feedback. Apply ONLY the requested changes. Keep everything else intact. The resume must remain in clean markdown format. Do not add any companies, titles, or metrics that weren't in the original. Output ONLY the updated resume in markdown — no commentary, no explanation.",
+        messages:[
+          {role:"user",content:"Here is the current resume:\n\n"+cleanResume},
+          {role:"assistant",content:"I have the resume. What changes would you like?"},
+          {role:"user",content:editPrompt}
+        ]
+      })});
+      if(!r.ok)throw new Error("Edit failed");
+      const d=await r.json();
+      const updated=d.content.filter(b=>b.type==="text").map(b=>b.text).join("\n");
+      setResume(updated+"\n\n"+FINGERPRINT);
+      setNewAtsResult(job.trim()?analyzeATS(updated,job,true):Object.assign(analyzeFormat(updated),{score:Math.min(92,Math.max(72,analyzeFormat(updated).score+20))}));
+      setEditPrompt("");
+    }catch(x){setErr("Edit failed: "+x.message)}
+    finally{setEditing(false)}
+  },[editPrompt,resume,cleanResume]);
+
+  const has=kb.length>0||li||extra||pasteText.trim();
+
+  const getHTML=()=>style==="classic"?classicHTML(cleanResume):style==="executive"?executiveHTML(cleanResume):modernHTML(cleanResume);
+  const getPreview=()=>style==="classic"?previewClassic(cleanResume):style==="executive"?previewExecutive(cleanResume):previewModern(cleanResume);
+  const btnS=(col,bg,bdr)=>({fontFamily:mono,fontSize:11,color:col,background:bg,border:"1px solid "+bdr,padding:"8px 16px",borderRadius:6,cursor:"pointer",letterSpacing:1});
+
+  const startCheckout=useCallback(async(plan,email)=>{
+    setCheckoutLoading(plan);
+    if(typeof gtag==="function")gtag("event","checkout_started",{event_category:"conversion",event_label:plan,value:plan==="single"?4.99:9.99});
+    try{
+      try{localStorage.setItem("rw-state",JSON.stringify({resume,style,step:3}))}catch(e){}
+      if(email){try{localStorage.setItem("rw-email",email)}catch(e){}}
+      const body={plan:plan,origin:window.location.origin};
+      if(email)body.email=email;
+      const r=await fetch("/api/checkout",{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify(body)
+      });
+      const d=await r.json();
+      if(d.url)window.location.href=d.url;
+      else setErr("Checkout error: "+(d.error||"Unknown error"));
+    }catch(x){setErr("Checkout failed: "+x.message)}
+    finally{setCheckoutLoading("")}
+  },[resume,style]);
+
+  const checkSubscription=useCallback(async(email)=>{
+    if(!email||!email.includes("@")){setEmailErr("Enter a valid email address");return}
+    setCheckingEmail(true);setEmailErr("");
+    try{
+      const r=await fetch("/api/check-subscription",{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({email:email.trim().toLowerCase()})
+      });
+      const d=await r.json();
+      if(d.active){
+        const expires=Date.now()+(30*24*60*60*1000);
+        try{localStorage.setItem("rw-paid",JSON.stringify({expires}));localStorage.setItem("rw-email",email.trim().toLowerCase())}catch(e){}
+        setIsPaid(true);setShowUpgrade(false);setUpgradeStep("choose");
+      }else{
+        setEmailErr(d.message||"No active subscription found for this email. Subscribe below.")
+      }
+    }catch(x){setEmailErr("Check failed: "+x.message)}
+    finally{setCheckingEmail(false)}
+  },[]);
+
+  const handleDownload=useCallback((type)=>{
+    if(typeof gtag==="function")gtag("event","resume_downloaded",{event_category:"conversion",event_label:type,value:isPaid?1:0});
+    if(isPaid){
+      if(type==="pdf"){const win=window.open("","_blank","width=800,height=1000");win.document.write('<!DOCTYPE html><html><head><meta charset="utf-8"><title>Resume</title><style>@page{margin:0.6in}body{margin:0;padding:40px}</style></head><body>'+getHTML()+'</body></html>');win.document.close();setTimeout(()=>{win.print()},500)}
+      else if(type==="word"){const full='<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><style>body{margin:0.75in}</style></head><body>'+getHTML()+'</body></html>';const blob=new Blob([full],{type:"application/msword"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="Resume.doc";a.click();URL.revokeObjectURL(url)}
+      else if(type==="copy"){navigator.clipboard.writeText(cleanResume).catch(()=>{})}
+    }else{
+      if(type==="pdf")downloadAsPDF(getHTML(),"Resume");
+      else if(type==="word")downloadAsWord(getHTML(),"Resume");
+      else if(type==="copy"){navigator.clipboard.writeText("✦ Created with ATSResumeChecker.io ✦\n\n"+cleanResume+"\n\n✦ Powered by ATSResumeChecker.io — AI Resume Builder ✦").catch(()=>{})}
+    }
+  },[isPaid,cleanResume,style]);
+
+  return el("div",null,
+    // BG
+    el("div",{style:{position:"fixed",inset:0,zIndex:0,background:"linear-gradient(165deg,#111827,#1e293b 40%,#1a1a2e)"}},
+      el("div",{style:{position:"absolute",inset:0,backgroundImage:"linear-gradient(rgba(56,189,248,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,.05) 1px,transparent 1px)",backgroundSize:"40px 40px"}})
+    ),
+    el("div",{style:{position:"relative",zIndex:1,minHeight:"100vh",padding:"24px 16px",maxWidth:840,margin:"0 auto"}},
+
+      // Header
+      el("div",{style:{textAlign:"center",marginBottom:32,animation:"slideUp .6s ease"}},
+        el("div",{style:{fontFamily:mono,fontSize:10,color:"#64748b",letterSpacing:4,marginBottom:8}},
+          el("span",{style:{display:"inline-block",width:8,height:8,borderRadius:"50%",background:"#38bdf8",boxShadow:"0 0 8px #38bdf8",animation:"pulse 2s ease-in-out infinite"}})," ",el("span",{style:{marginLeft:8}},"SYSTEM ACTIVE")
+        ),
+        el("h1",{style:{fontSize:38,fontWeight:900,background:"linear-gradient(135deg,#e2e8f0,#a78bfa 50%,#38bdf8)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",margin:0,lineHeight:1.1}},"RESUME WEAPON"),
+        el("p",{style:{fontSize:13,color:"#64748b",marginTop:8,fontWeight:300}},"Free ATS Resume Checker & AI Resume Builder — beat applicant tracking systems and land interviews."),
+
+        // Social proof + mini demo
+        el("div",{style:{display:"flex",alignItems:"center",justifyContent:"center",gap:20,marginTop:16,flexWrap:"wrap"}},
+          // Animated score demo
+          el("div",{style:{display:"flex",alignItems:"center",gap:8}},
+            el("div",{style:{display:"flex",alignItems:"center",gap:4}},
+              el("span",{style:{fontFamily:mono,fontSize:18,fontWeight:900,color:"#ef4444"}},"42"),
+              el("span",{style:{fontSize:11,color:"#64748b"}},"/100")
+            ),
+            el("span",{style:{color:"#64748b",fontSize:16}},"→"),
+            el("div",{style:{display:"flex",alignItems:"center",gap:4}},
+              el("span",{style:{fontFamily:mono,fontSize:18,fontWeight:900,color:"#22c55e"}},"87"),
+              el("span",{style:{fontSize:11,color:"#64748b"}},"/100")
+            )
+          ),
+          el("span",{style:{width:1,height:20,background:"rgba(100,116,139,.3)"}}),
+          el("span",{style:{fontFamily:mono,fontSize:11,color:"#64748b",letterSpacing:1}},"✓ FREE · NO SIGNUP · 30 SECONDS")
+        )
+      ),
+
+      // Helper: scroll to top on step change
+      // Steps nav
+      el("div",{style:{display:"flex",justifyContent:"center",gap:6,marginBottom:32}},
+        [{n:1,l:"1. UPLOAD"},{n:2,l:"2. ANALYZE"},{n:3,l:"3. RESUME"}].map(({n,l})=>
+          el("button",{key:n,onClick:()=>{if(n===2&&!atsResult)return;if(n===3&&!resume)return;setStep(n);window.scrollTo(0,0)},style:{fontFamily:mono,fontSize:11,letterSpacing:2,padding:"10px 24px",border:"1px solid",borderColor:step===n?"rgba(139,92,246,.5)":"rgba(100,116,139,.25)",background:step===n?"rgba(139,92,246,.12)":"rgba(30,41,59,.4)",color:step===n?"#a78bfa":"#475569",cursor:(n===2&&!atsResult)||(n===3&&!resume)?"not-allowed":"pointer",borderRadius:4}},l)
+        )
+      ),
+
+      // STEP 1 — UPLOAD ONLY (minimal — auto-jumps to Step 2 on file upload)
+      step===1&&el("div",{style:{animation:"slideUp .4s ease"}},
+        // Resume Upload
+        el("div",{style:{marginBottom:20}},
+          el("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:6}},
+            el("div",{style:{display:"flex",alignItems:"center",gap:10}},el("span",{style:{fontSize:18}},"📄"),el("h2",{style:{fontFamily:mono,fontSize:13,fontWeight:700,letterSpacing:3,textTransform:"uppercase",color:"#e2e8f0",margin:0}},"YOUR RESUME"),kb.length>0&&el("span",{style:{fontFamily:mono,fontSize:11,background:"rgba(139,92,246,.2)",color:"#a78bfa",padding:"2px 8px",borderRadius:4}},kb.length)),
+            el("button",{onClick:()=>setPasteMode(!pasteMode),style:{fontFamily:mono,fontSize:10,color:"#38bdf8",background:"none",border:"1px solid rgba(56,189,248,.25)",padding:"4px 10px",borderRadius:4,cursor:"pointer",letterSpacing:1}},pasteMode?"⬆ UPLOAD FILE":"📋 PASTE TEXT")
+          ),
+          !pasteMode?el("div",null,
+            el("div",{
+              onClick:()=>fRef.current&&fRef.current.click(),
+              onDrop:handleDrop,onDragOver:handleDragOver,onDragLeave:handleDragLeave,onDragEnter:handleDragOver,
+              style:{border:dragging?"2px dashed #a78bfa":"2px dashed rgba(56,189,248,.2)",borderRadius:10,padding:"32px 20px",textAlign:"center",cursor:"pointer",marginBottom:12,background:dragging?"rgba(139,92,246,.08)":"rgba(56,189,248,.02)",transition:"all .2s"}
+            },
+              el("div",{style:{fontSize:24,marginBottom:6}},dragging?"📥":"⬆"),
+              el("div",{style:{fontFamily:mono,fontSize:13,color:dragging?"#a78bfa":"#38bdf8",fontWeight:600}},dragging?"Release to upload":"Drop resume here or click to upload"),
+              el("div",{style:{fontSize:12,color:"#64748b",marginTop:6}},"Upload and get your ATS score instantly"),
+              el("div",{style:{fontSize:11,color:"#475569",marginTop:4}},".docx, .pdf, .txt"),
+              el("input",{ref:fRef,type:"file",multiple:true,accept:".txt,.pdf,.md,.doc,.docx,.json,.csv,.rtf",onChange:upload,style:{display:"none"}})
+            ),
+            kb.length>0&&el("div",{style:{display:"flex",flexWrap:"wrap",gap:8,marginBottom:12}},kb.map((f,i)=>el("div",{key:i,style:{display:"inline-flex",alignItems:"center",gap:8,background:"rgba(56,189,248,.08)",border:"1px solid rgba(56,189,248,.15)",borderRadius:6,padding:"5px 10px",fontSize:11,fontFamily:mono,color:"#94a3b8"}},el("span",{style:{color:"#38bdf8"}},"◆"),el("span",{style:{maxWidth:160,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}},f.name),el("button",{onClick:()=>setKb(p=>p.filter((_,j)=>j!==i)),style:{background:"none",border:"none",color:"#64748b",cursor:"pointer",fontSize:13,padding:0}},"×"))))
+          ):el("div",null,
+            el("textarea",{value:pasteText,onChange:ev=>setPasteText(ev.target.value),placeholder:"Paste your full resume text here...\n\nCopy from your resume document, LinkedIn, or anywhere else.",rows:10,style:{...IS,marginBottom:8,fontSize:12}}),
+            pasteText.trim()&&el("div",{style:{display:"flex",alignItems:"center",gap:8,marginBottom:12}},
+              el("span",{style:{fontFamily:mono,fontSize:11,color:"#22c55e"}},"✓ "+pasteText.trim().split(/\s+/).length+" words"),
+              el("button",{onClick:()=>setPasteText(""),style:{fontFamily:mono,fontSize:10,color:"#64748b",background:"none",border:"none",cursor:"pointer"}},"Clear")
+            ),
+            pasteText.trim().split(/\s+/).length>=20&&el("div",{style:{textAlign:"center",marginTop:8}},
+              el("button",{onClick:()=>{const allSource=pasteText.trim()+(li?"\n\n"+li:"")+(extra?"\n\n"+extra:"");const result=analyzeFormat(allSource);setAtsResult(result);setStep(2);window.scrollTo(0,0);if(typeof gtag==="function")gtag("event","ats_score_checked",{event_category:"funnel",event_label:"paste_format_mode",value:result.score})},style:{fontFamily:mono,fontSize:15,fontWeight:700,letterSpacing:2,background:"linear-gradient(135deg,#7c3aed,#6d28d9)",color:"#fff",border:"none",padding:"16px 48px",borderRadius:10,cursor:"pointer",boxShadow:"0 4px 24px rgba(124,58,237,.3)"}},"CHECK MY RESUME →")
+            )
+          )
+        ),
+
+        // Privacy trust banner
+        el("div",{style:{display:"flex",alignItems:"center",justifyContent:"center",gap:16,padding:"10px 16px",marginBottom:16,background:"rgba(34,197,94,.04)",border:"1px solid rgba(34,197,94,.12)",borderRadius:8,flexWrap:"wrap"}},
+          el("span",{style:{fontSize:11,color:"#64748b",display:"flex",alignItems:"center",gap:4}},el("span",{style:{color:"#22c55e"}},"🔒")," Your data stays in your browser"),
+          el("span",{style:{fontSize:11,color:"#475569"}},"•"),
+          el("span",{style:{fontSize:11,color:"#64748b",display:"flex",alignItems:"center",gap:4}},el("span",{style:{color:"#22c55e"}},"🚫")," No resume storage"),
+          el("span",{style:{fontSize:11,color:"#475569"}},"•"),
+          el("span",{style:{fontSize:11,color:"#64748b",display:"flex",alignItems:"center",gap:4}},el("span",{style:{color:"#22c55e"}},"🔐")," Stripe secure payments")
+        ),
+
+        // LinkedIn & Additional (collapsible — hidden by default)
+        el("details",{style:{marginBottom:12}},
+          el("summary",{style:{fontFamily:mono,fontSize:11,color:"#64748b",cursor:"pointer",letterSpacing:1,marginBottom:8}},"+ ADD LINKEDIN / EXTRA INFO (optional)"),
+          el("div",{style:{marginBottom:12}},
+            el("label",{style:{fontFamily:mono,fontSize:10,color:"#64748b",letterSpacing:1,display:"block",marginBottom:6}},"LINKEDIN PROFILE"),
+            el("textarea",{value:li,onChange:ev=>setLi(ev.target.value),placeholder:"Paste LinkedIn About, experience, skills...",rows:3,style:{...IS,fontSize:12}})
+          ),
+          el("div",null,
+            el("label",{style:{fontFamily:mono,fontSize:10,color:"#64748b",letterSpacing:1,display:"block",marginBottom:6}},"ADDITIONAL INFO"),
+            el("textarea",{value:extra,onChange:ev=>setExtra(ev.target.value),placeholder:"Side projects, certs, awards...",rows:2,style:{...IS,fontSize:12}})
+          )
+        ),
+
+        err&&el("div",{style:{fontSize:13,color:"#f59e0b",background:"rgba(245,158,11,.08)",border:"1px solid rgba(245,158,11,.2)",borderRadius:8,padding:12,marginBottom:16}},err)
+      ),
+
+      // STEP 2 — ANALYZE (ATS Score + Keywords/Checklist + Generate)
+      step===2&&atsResult&&el("div",{style:{animation:"slideUp .4s ease"}},
+        el("div",{style:{marginBottom:20}},
+          el("div",{style:{display:"flex",alignItems:"center",gap:10}},el("span",{style:{fontSize:18}},"📊"),el("h2",{style:{fontFamily:mono,fontSize:13,fontWeight:700,letterSpacing:3,textTransform:"uppercase",color:"#e2e8f0",margin:0}},atsResult.isGeneral?"ATS FORMAT SCORE":"ATS COMPATIBILITY SCORE"))
+        ),
+
+        // Score Gauge
+        el("div",{style:{textAlign:"center",marginBottom:24,padding:"24px 20px",background:"rgba(30,41,59,.4)",borderRadius:16,border:"1px solid rgba(100,116,139,.2)"}},
+          el("div",{style:{position:"relative",width:130,height:130,margin:"0 auto 12px"}},
+            el("svg",{width:130,height:130,viewBox:"0 0 130 130"},
+              el("circle",{cx:65,cy:65,r:55,fill:"none",stroke:"rgba(100,116,139,.15)",strokeWidth:9}),
+              el("circle",{cx:65,cy:65,r:55,fill:"none",stroke:atsResult.score>=80?"#22c55e":atsResult.score>=60?"#f59e0b":"#ef4444",strokeWidth:9,strokeDasharray:2*Math.PI*55,strokeDashoffset:2*Math.PI*55*(1-atsResult.score/100),strokeLinecap:"round",transform:"rotate(-90 65 65)",style:{transition:"stroke-dashoffset 1s ease"}})
+            ),
+            el("div",{style:{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",textAlign:"center"}},
+              el("div",{style:{fontSize:34,fontWeight:900,color:atsResult.score>=80?"#22c55e":atsResult.score>=60?"#f59e0b":"#ef4444",fontFamily:mono}},atsResult.score),
+              el("div",{style:{fontSize:9,color:"#64748b",fontFamily:mono,letterSpacing:1}},"/ 100")
+            )
+          ),
+          el("div",{style:{fontFamily:mono,fontSize:12,fontWeight:700,color:atsResult.score>=80?"#22c55e":atsResult.score>=60?"#f59e0b":"#ef4444",letterSpacing:1,marginBottom:4}},
+            atsResult.score>=80?"STRONG":atsResult.score>=60?"GOOD — ROOM TO IMPROVE":"NEEDS WORK"
+          ),
+          el("p",{style:{fontSize:12,color:"#64748b",maxWidth:400,margin:"0 auto"}},
+            atsResult.isGeneral?(
+              atsResult.score>=80?"Your resume has strong ATS formatting. Our AI can polish it further.":
+              atsResult.score>=60?"Decent format but some ATS issues to fix. Our AI will clean it up.":
+              "Your resume has formatting issues that could cause ATS rejection. Let our AI fix it."
+            ):(
+              atsResult.score>=80?"Your resume aligns well. Our AI will strengthen it further.":
+              atsResult.score>=60?"Decent match but missing key terms. Our AI will fill the gaps.":
+              "Missing several important keywords. Our AI will optimize your ATS score."
+            )
+          )
+        ),
+
+        // CTA
+        err&&el("div",{style:{fontSize:13,color:"#ef4444",background:"rgba(239,68,68,.08)",border:"1px solid rgba(239,68,68,.2)",borderRadius:8,padding:12,marginBottom:16}},err),
+        el("div",{style:{display:"flex",gap:12,justifyContent:"center",marginBottom:20,flexWrap:"wrap"}},
+          el("button",{onClick:()=>{generate();window.scrollTo(0,0)},disabled:loading,style:{fontFamily:mono,fontSize:16,fontWeight:700,letterSpacing:2,background:loading?"rgba(100,116,139,.25)":"linear-gradient(135deg,#7c3aed,#6d28d9)",color:loading?"#475569":"#fff",border:"none",padding:"18px 48px",borderRadius:10,cursor:loading?"wait":"pointer",boxShadow:loading?"none":"0 6px 28px rgba(124,58,237,.35)",width:"100%",maxWidth:400}},loading?el("span",{style:{display:"flex",alignItems:"center",justifyContent:"center",gap:8}},el("span",{style:{display:"inline-block",width:8,height:8,borderRadius:"50%",background:"#a78bfa",animation:"pulse 2s ease-in-out infinite"}})," BUILDING..."):atsResult.isGeneral?"OPTIMIZE RESUME FORMAT ⚡":"BUILD OPTIMIZED RESUME ⚡")
+        ),
+        prog&&el("div",{style:{fontFamily:mono,fontSize:12,color:"#38bdf8",textAlign:"center",marginBottom:16,animation:"pulse 1.5s ease-in-out infinite"}},prog),
+
+        // Keyword Columns (job-targeted mode)
+        !atsResult.isGeneral&&el("div",{style:{display:"flex",gap:12,marginBottom:16,flexWrap:"wrap"}},
+          el("div",{style:{flex:1,minWidth:220,background:"rgba(34,197,94,.05)",border:"1px solid rgba(34,197,94,.2)",borderRadius:12,padding:14}},
+            el("div",{style:{display:"flex",alignItems:"center",gap:6,marginBottom:10}},
+              el("span",{style:{fontSize:14}},"✅"),
+              el("div",{style:{fontFamily:mono,fontSize:11,fontWeight:700,color:"#22c55e",letterSpacing:1}},"FOUND ("+atsResult.matched.length+")")
+            ),
+            atsResult.matched.length?el("div",{style:{display:"flex",flexWrap:"wrap",gap:5}},
+              atsResult.matched.map((kw,i)=>el("span",{key:i,style:{fontSize:10,color:"#22c55e",background:"rgba(34,197,94,.1)",padding:"2px 8px",borderRadius:5,fontFamily:mono}},kw))
+            ):el("p",{style:{fontSize:11,color:"#64748b"}},"No matches found.")
+          ),
+          el("div",{style:{flex:1,minWidth:220,background:"rgba(239,68,68,.05)",border:"1px solid rgba(239,68,68,.15)",borderRadius:12,padding:14}},
+            el("div",{style:{display:"flex",alignItems:"center",gap:6,marginBottom:10}},
+              el("span",{style:{fontSize:14}},"❌"),
+              el("div",{style:{fontFamily:mono,fontSize:11,fontWeight:700,color:"#ef4444",letterSpacing:1}},"MISSING ("+atsResult.missing.length+")")
+            ),
+            atsResult.missing.length?el("div",{style:{display:"flex",flexWrap:"wrap",gap:5}},
+              atsResult.missing.map((kw,i)=>el("span",{key:i,style:{fontSize:10,color:"#ef4444",background:"rgba(239,68,68,.08)",padding:"2px 8px",borderRadius:5,fontFamily:mono}},kw))
+            ):el("p",{style:{fontSize:11,color:"#64748b"}},"No missing keywords!")
+          )
+        ),
+
+        // Format Checklist (general mode)
+        atsResult.isGeneral&&el("div",{style:{display:"flex",gap:12,marginBottom:16,flexWrap:"wrap"}},
+          el("div",{style:{flex:1,minWidth:220,background:"rgba(34,197,94,.05)",border:"1px solid rgba(34,197,94,.2)",borderRadius:12,padding:14}},
+            el("div",{style:{display:"flex",alignItems:"center",gap:6,marginBottom:10}},
+              el("span",{style:{fontSize:14}},"✅"),
+              el("div",{style:{fontFamily:mono,fontSize:11,fontWeight:700,color:"#22c55e",letterSpacing:1}},"PASSING ("+atsResult.checks.length+")")
+            ),
+            atsResult.checks.map((c,i)=>el("div",{key:i,style:{fontSize:11,color:"#22c55e",padding:"4px 0",borderBottom:"1px solid rgba(34,197,94,.1)"}},"✓ "+c))
+          ),
+          el("div",{style:{flex:1,minWidth:220,background:"rgba(239,68,68,.05)",border:"1px solid rgba(239,68,68,.15)",borderRadius:12,padding:14}},
+            el("div",{style:{display:"flex",alignItems:"center",gap:6,marginBottom:10}},
+              el("span",{style:{fontSize:14}},"⚠️"),
+              el("div",{style:{fontFamily:mono,fontSize:11,fontWeight:700,color:"#ef4444",letterSpacing:1}},"ISSUES ("+atsResult.issues.length+")")
+            ),
+            atsResult.issues.length?atsResult.issues.map((c,i)=>el("div",{key:i,style:{fontSize:11,color:"#ef4444",padding:"4px 0",borderBottom:"1px solid rgba(239,68,68,.08)"}},"✗ "+c))
+            :el("p",{style:{fontSize:11,color:"#64748b"}},"No issues found!")
+          )
+        ),
+
+        el("div",{style:{textAlign:"center"}},
+          el("button",{onClick:()=>{setStep(1);window.scrollTo(0,0)},style:{...btnS("#64748b","none","rgba(100,116,139,.25)"),fontSize:11}},"← UPLOAD NEW RESUME")
+        ),
+
+        // Job Posting (optional — for targeted keyword analysis)
+        el("div",{style:{marginTop:20,background:"rgba(30,41,59,.4)",border:"1px solid rgba(139,92,246,.15)",borderRadius:12,padding:16}},
+          el("div",{style:{display:"flex",alignItems:"center",gap:8,marginBottom:8}},
+            el("span",{style:{fontSize:14}},"🎯"),
+            el("div",{style:{fontFamily:mono,fontSize:11,fontWeight:700,color:"#a78bfa",letterSpacing:1}},"WANT A HIGHER SCORE? ADD A JOB POSTING")
+          ),
+          el("p",{style:{fontSize:12,color:"#64748b",marginBottom:8,lineHeight:1.5}},"Paste a specific job posting and we'll match your resume against its exact keywords for a targeted ATS score."),
+          el("textarea",{value:job,onChange:ev=>setJob(ev.target.value),placeholder:"Paste a job posting here for keyword-targeted analysis...",rows:5,style:{...IS,fontSize:12,background:"rgba(30,41,59,.6)",marginBottom:8}}),
+          job.trim()&&el("div",{style:{marginBottom:8}},
+            el("label",{style:{fontFamily:mono,fontSize:10,color:"#64748b",letterSpacing:1,display:"block",marginBottom:8}},"RESUME OPTIMIZATION LEVEL"),
+            el("div",{style:{display:"flex",gap:6}},
+              [1,2,3].map(lv=>{const c=DLC[lv];const on=dare===lv;return el("button",{key:lv,onClick:()=>setDare(lv),style:{flex:1,padding:"8px 6px",borderRadius:6,cursor:"pointer",textAlign:"center",border:"1px solid "+(on?c.color+"66":"rgba(100,116,139,.25)"),background:on?c.color+"15":"rgba(30,41,59,.35)"}},el("div",{style:{fontFamily:mono,fontSize:10,fontWeight:700,color:on?c.color:"#64748b",letterSpacing:1}},c.label))})
+            )
+          ),
+          job.trim()&&el("div",{style:{textAlign:"center",marginTop:8}},
+            el("button",{onClick:()=>{const kbT=kb.map(f=>f.content).join("\n\n");const allSource=kbT+(pasteText.trim()?"\n\n"+pasteText.trim():"")+(li?"\n\n"+li:"")+(extra?"\n\n"+extra:"");const result=analyzeATS(allSource,job);setAtsResult(result);window.scrollTo(0,0);if(typeof gtag==="function")gtag("event","ats_score_checked",{event_category:"funnel",event_label:"keyword_mode",value:result.score})},style:{fontFamily:mono,fontSize:13,fontWeight:700,letterSpacing:2,background:"linear-gradient(135deg,#7c3aed,#6d28d9)",color:"#fff",border:"none",padding:"12px 28px",borderRadius:8,cursor:"pointer",boxShadow:"0 4px 16px rgba(124,58,237,.3)"}},"RE-ANALYZE WITH KEYWORDS 🎯")
+          )
+        )
+      ),
+
+      // STEP 3 — RESUME (style + preview + download)
+      step===3&&resume&&el("div",{style:{animation:"slideUp .4s ease"}},
+        el("div",{style:{marginBottom:20}},
+          el("div",{style:{display:"flex",alignItems:"center",gap:10}},el("span",{style:{fontSize:18}},"⚡"),el("h2",{style:{fontFamily:mono,fontSize:13,fontWeight:700,letterSpacing:3,textTransform:"uppercase",color:"#e2e8f0",margin:0}},"YOUR OPTIMIZED RESUME")),
+          el("p",{style:{fontSize:13,color:"#64748b",margin:"6px 0 0 28px"}},"Choose a style, preview, and download.")
+        ),
+
+        // Before/After ATS Score
+        (atsResult||newAtsResult)&&el("div",{style:{display:"flex",gap:12,marginBottom:20,justifyContent:"center",flexWrap:"wrap"}},
+          atsResult&&el("div",{style:{textAlign:"center",padding:"16px 24px",background:"rgba(30,41,59,.4)",borderRadius:12,border:"1px solid rgba(100,116,139,.2)",minWidth:140}},
+            el("div",{style:{fontFamily:mono,fontSize:10,color:"#64748b",letterSpacing:1,marginBottom:6}},"BEFORE"),
+            el("div",{style:{fontSize:32,fontWeight:900,color:atsResult.score>=80?"#22c55e":atsResult.score>=60?"#f59e0b":"#ef4444",fontFamily:mono}},atsResult.score),
+            el("div",{style:{fontSize:9,color:"#64748b",fontFamily:mono}},"/100")
+          ),
+          (atsResult&&newAtsResult)&&el("div",{style:{display:"flex",alignItems:"center",color:"#64748b",fontSize:20}},"→"),
+          newAtsResult&&el("div",{style:{textAlign:"center",padding:"16px 24px",background:"rgba(34,197,94,.05)",borderRadius:12,border:"1px solid rgba(34,197,94,.25)",minWidth:140}},
+            el("div",{style:{fontFamily:mono,fontSize:10,color:"#22c55e",letterSpacing:1,marginBottom:6}},"AFTER"),
+            el("div",{style:{fontSize:32,fontWeight:900,color:"#22c55e",fontFamily:mono}},newAtsResult.score),
+            el("div",{style:{fontSize:9,color:"#64748b",fontFamily:mono}},"/100"),
+            (atsResult&&newAtsResult.score>atsResult.score)&&el("div",{style:{fontFamily:mono,fontSize:11,color:"#22c55e",marginTop:4,fontWeight:700}},"+",newAtsResult.score-atsResult.score," pts")
+          )
+        ),
+
+        // Style Selector
+        el("div",{style:{display:"flex",gap:8,marginBottom:20}},
+          ["classic","modern","executive"].map(s=>{
+            const c=STYLES[s];const on=style===s;
+            return el("button",{key:s,onClick:()=>setStyle(s),style:{
+              flex:1,padding:"12px 8px",borderRadius:10,cursor:"pointer",textAlign:"center",transition:"all .2s",
+              border:"2px solid "+(on?c.color:c.border),
+              background:on?"rgba(30,41,59,.6)":"rgba(30,41,59,.3)",
+              boxShadow:on?"0 0 16px "+c.color+"22":"none"
+            }},
+              el("div",{style:{fontSize:20,marginBottom:4}},c.icon),
+              el("div",{style:{fontFamily:mono,fontSize:11,fontWeight:700,color:on?c.color:"#475569",letterSpacing:1}},c.label),
+              on&&el("div",{style:{marginTop:4,fontSize:9,color:c.color,fontFamily:mono}},"● SELECTED")
+            )
+          })
+        ),
+
+        // Download Buttons
+        el("div",{style:{display:"flex",gap:10,marginBottom:16,flexWrap:"wrap"}},
+          el("button",{onClick:()=>isPaid?handleDownload("pdf"):(setShowUpgrade(true),typeof gtag==="function"&&gtag("event","upgrade_clicked",{event_category:"funnel"})),style:{
+            flex:1,minWidth:180,fontFamily:mono,fontSize:12,fontWeight:700,letterSpacing:2,
+            background:"linear-gradient(135deg,#dc2626,#b91c1c)",color:"#fff",border:"none",
+            padding:"12px 16px",borderRadius:8,cursor:"pointer",
+            boxShadow:"0 4px 16px rgba(220,38,38,.25)",display:"flex",alignItems:"center",justifyContent:"center",gap:6
+          }},el("span",{style:{fontSize:14}},isPaid?"📄":"🔒")," ",isPaid?"DOWNLOAD PDF":"PDF — UPGRADE"),
+          el("button",{onClick:()=>isPaid?handleDownload("word"):(setShowUpgrade(true),typeof gtag==="function"&&gtag("event","upgrade_clicked",{event_category:"funnel"})),style:{
+            flex:1,minWidth:180,fontFamily:mono,fontSize:12,fontWeight:700,letterSpacing:2,
+            background:"linear-gradient(135deg,#2563eb,#1d4ed8)",color:"#fff",border:"none",
+            padding:"12px 16px",borderRadius:8,cursor:"pointer",
+            boxShadow:"0 4px 16px rgba(37,99,235,.25)",display:"flex",alignItems:"center",justifyContent:"center",gap:6
+          }},el("span",{style:{fontSize:14}},isPaid?"📝":"🔒")," ",isPaid?"DOWNLOAD WORD":"WORD — UPGRADE")
+        ),
+
+        // Secondary actions
+        el("div",{style:{display:"flex",gap:8,marginBottom:16,flexWrap:"wrap"}},
+          isPaid&&el("button",{onClick:()=>handleDownload("copy"),style:btnS("#38bdf8","rgba(56,189,248,.08)","rgba(56,189,248,.2)")},"📋 COPY"),
+          el("button",{onClick:()=>{setStep(1);setResume("");setAtsResult(null);setNewAtsResult(null);window.scrollTo(0,0)},style:btnS("#a78bfa","rgba(139,92,246,.08)","rgba(139,92,246,.2)")},"🔄 NEW"),
+          el("button",{onClick:()=>{setStep(2);window.scrollTo(0,0)},style:btnS("#64748b","none","rgba(100,116,139,.25)")},"← ATS SCORE")
+        ),
+
+        // Live Preview
+        el("div",{style:{marginBottom:6}},
+          el("label",{style:{fontFamily:mono,fontSize:10,color:"#64748b",letterSpacing:1}},"PREVIEW — "+STYLES[style].label)
+        ),
+        el("div",{
+          className:isPaid?"":"no-copy",
+          onContextMenu:isPaid?undefined:ev=>ev.preventDefault(),
+          onCopy:isPaid?undefined:ev=>ev.preventDefault(),
+          onDragStart:isPaid?undefined:ev=>ev.preventDefault(),
+          style:{position:"relative",overflow:"hidden",borderRadius:12,maxWidth:700,margin:"0 auto"}
+        },
+          el("div",{style:{
+            background:"#ffffff",border:"1px solid rgba(100,116,139,.2)",borderRadius:12,padding:"36px 44px",
+            boxShadow:"0 4px 24px rgba(0,0,0,.15)",
+            userSelect:isPaid?"auto":"none",WebkitUserSelect:isPaid?"auto":"none",
+          }},getPreview()),
+          !isPaid&&el("div",{style:{position:"absolute",inset:0,pointerEvents:"none",overflow:"hidden",borderRadius:12}},
+            el("div",{style:{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%) rotate(-35deg)",width:"200%",display:"flex",flexDirection:"column",gap:48,alignItems:"center"}},
+              [-4,-3,-2,-1,0,1,2,3,4].map(n=>el("div",{key:n,style:{fontFamily:"Helvetica,Arial,sans-serif",fontSize:15,fontWeight:700,color:"rgba(124,58,237,0.1)",letterSpacing:6,whiteSpace:"nowrap",textTransform:"uppercase"}},"ATSRESUMECHECKER.IO   ✦   UPGRADE TO DOWNLOAD   ✦   ATSRESUMECHECKER.IO   ✦   UPGRADE TO DOWNLOAD"))
+            )
+          )
+        ),
+
+        // Upgrade banner
+        !isPaid&&el("div",{style:{marginTop:16,background:"linear-gradient(135deg,rgba(124,58,237,.1),rgba(56,189,248,.06))",border:"1px solid rgba(139,92,246,.3)",borderRadius:12,padding:"20px 24px",textAlign:"center"}},
+          el("p",{style:{fontFamily:mono,fontSize:12,color:"#a78bfa",letterSpacing:1,marginBottom:4,fontWeight:700}},"YOUR RESUME IS READY"),
+          el("p",{style:{fontSize:12,color:"#94a3b8",lineHeight:1.6,marginBottom:12}},"Download clean PDF & Word without watermarks."),
+          el("button",{onClick:()=>{setShowUpgrade(true);if(typeof gtag==="function")gtag("event","upgrade_clicked",{event_category:"funnel"})},style:{fontFamily:mono,fontSize:13,fontWeight:700,letterSpacing:2,background:"linear-gradient(135deg,#7c3aed,#6d28d9)",color:"#fff",border:"none",padding:"12px 28px",borderRadius:8,cursor:"pointer",boxShadow:"0 4px 16px rgba(124,58,237,.3)"}},"🔓 UNLOCK & DOWNLOAD")
+        ),
+
+        // AI Edit
+        el("div",{style:{marginTop:20,background:"rgba(30,41,59,.4)",border:"1px solid rgba(139,92,246,.2)",borderRadius:12,padding:16}},
+          el("label",{style:{fontFamily:mono,fontSize:10,color:"#a78bfa",letterSpacing:1,display:"block",marginBottom:8}},"✏️ REFINE WITH AI"),
+          el("div",{style:{display:"flex",gap:8}},
+            el("textarea",{value:editPrompt,onChange:ev=>setEditPrompt(ev.target.value),onKeyDown:ev=>{if(ev.key==="Enter"&&!ev.shiftKey){ev.preventDefault();editResume()}},placeholder:"e.g. Make the summary more concise...",rows:2,style:{...IS,flex:1,background:"rgba(30,41,59,.6)",padding:"8px 12px",resize:"none",fontSize:12}}),
+            el("button",{onClick:editResume,disabled:editing||!editPrompt.trim(),style:{
+              fontFamily:mono,fontSize:11,fontWeight:700,letterSpacing:1,
+              background:editing?"rgba(100,116,139,.25)":editPrompt.trim()?"linear-gradient(135deg,#7c3aed,#6d28d9)":"rgba(100,116,139,.25)",
+              color:editing||!editPrompt.trim()?"#475569":"#fff",
+              border:"none",padding:"8px 16px",borderRadius:8,cursor:editing||!editPrompt.trim()?"not-allowed":"pointer",
+              alignSelf:"flex-end",whiteSpace:"nowrap"
+            }},editing?"...":"APPLY →")
+          )
+        ),
+
+        // Raw markdown (paid only)
+        isPaid&&el("details",{style:{marginTop:12}},
+          el("summary",{style:{fontFamily:mono,fontSize:10,color:"#64748b",cursor:"pointer",letterSpacing:1}},"RAW MARKDOWN"),
+          el("pre",{style:{fontFamily:mono,fontSize:11,color:"#94a3b8",background:"rgba(30,41,59,.6)",border:"1px solid rgba(100,116,139,.2)",borderRadius:8,padding:14,marginTop:8,overflow:"auto",whiteSpace:"pre-wrap",lineHeight:1.5}},cleanResume)
+        ),
+
+        // Upgrade Modal
+        showUpgrade&&el("div",{style:{position:"fixed",inset:0,zIndex:1000,display:"flex",alignItems:"center",justifyContent:"center",padding:20}},
+          el("div",{onClick:()=>{setShowUpgrade(false);setUpgradeStep("choose");setEmailErr("")},style:{position:"absolute",inset:0,background:"rgba(0,0,0,.5)",backdropFilter:"blur(4px)"}}),
+          el("div",{style:{position:"relative",background:"linear-gradient(165deg,#1e293b,#1a1a2e)",border:"1px solid rgba(139,92,246,.3)",borderRadius:16,padding:"32px 28px",maxWidth:460,width:"100%",boxShadow:"0 24px 64px rgba(0,0,0,.5)"}},
+            el("button",{onClick:()=>{setShowUpgrade(false);setUpgradeStep("choose");setEmailErr("")},style:{position:"absolute",top:12,right:16,background:"none",border:"none",color:"#64748b",fontSize:20,cursor:"pointer"}},"×"),
+            upgradeStep==="choose"&&el("div",null,
+              el("div",{style:{textAlign:"center",marginBottom:20}},
+                el("div",{style:{fontSize:32,marginBottom:6}},"⚡"),
+                el("h2",{style:{fontFamily:mono,fontSize:15,fontWeight:700,color:"#e2e8f0",letterSpacing:2,marginBottom:6}},"UNLOCK RESUME"),
+                el("p",{style:{fontSize:13,color:"#64748b"}},"Download clean PDF & Word without watermarks.")
+              ),
+              el("div",{style:{display:"flex",flexDirection:"column",gap:10,marginBottom:16}},
+                el("button",{onClick:()=>startCheckout("single"),disabled:!!checkoutLoading,style:{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"14px 18px",borderRadius:10,cursor:checkoutLoading?"wait":"pointer",border:"2px solid rgba(56,189,248,.3)",background:"rgba(56,189,248,.05)"}},
+                  el("div",{style:{textAlign:"left"}},el("div",{style:{fontFamily:mono,fontSize:12,fontWeight:700,color:"#38bdf8",letterSpacing:1}},"SINGLE RESUME"),el("div",{style:{fontSize:11,color:"#64748b",marginTop:2}},"This resume — PDF + Word")),
+                  el("div",{style:{fontFamily:mono,fontSize:20,fontWeight:700,color:"#38bdf8"}},checkoutLoading==="single"?"...":"$4.99")
+                ),
+                el("button",{onClick:()=>{setUpgradeStep("email");setEmailErr("")},style:{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"14px 18px",borderRadius:10,cursor:"pointer",border:"2px solid rgba(139,92,246,.4)",background:"rgba(139,92,246,.08)",position:"relative"}},
+                  el("div",{style:{position:"absolute",top:-9,right:12,fontFamily:mono,fontSize:8,fontWeight:700,color:"#fff",background:"linear-gradient(135deg,#7c3aed,#6d28d9)",padding:"2px 8px",borderRadius:8,letterSpacing:1}},"BEST VALUE"),
+                  el("div",{style:{textAlign:"left"}},el("div",{style:{fontFamily:mono,fontSize:12,fontWeight:700,color:"#a78bfa",letterSpacing:1}},"UNLIMITED MONTHLY"),el("div",{style:{fontSize:11,color:"#64748b",marginTop:2}},"Unlimited resumes")),
+                  el("div",{style:{textAlign:"right"}},el("div",{style:{fontFamily:mono,fontSize:20,fontWeight:700,color:"#a78bfa"}},"$9.99"),el("div",{style:{fontSize:9,color:"#64748b"}},"/month"))
+                )
+              ),
+              el("div",{style:{textAlign:"center"}},
+                el("p",{style:{fontSize:10,color:"#64748b",fontFamily:mono,letterSpacing:1,marginBottom:8}},"SECURE CHECKOUT VIA STRIPE"),
+                el("button",{onClick:()=>{setUpgradeStep("login");setEmailErr("")},style:{background:"none",border:"none",color:"#a78bfa",fontSize:11,cursor:"pointer",textDecoration:"underline"}},"Already a subscriber? Log in")
+              )
+            ),
+            upgradeStep==="email"&&el("div",null,
+              el("div",{style:{textAlign:"center",marginBottom:16}},
+                el("div",{style:{fontSize:24,marginBottom:6}},"📧"),
+                el("h2",{style:{fontFamily:mono,fontSize:13,fontWeight:700,color:"#e2e8f0",letterSpacing:2,marginBottom:6}},"CREATE ACCOUNT"),
+                el("p",{style:{fontSize:12,color:"#64748b"}},"Enter your email for monthly subscription.")
+              ),
+              el("input",{value:subEmail,onChange:ev=>{setSubEmail(ev.target.value);setEmailErr("")},onKeyDown:ev=>ev.key==="Enter"&&subEmail.includes("@")&&startCheckout("monthly",subEmail.trim().toLowerCase()),placeholder:"your@email.com",style:{...IS,marginBottom:8,fontFamily:mono,fontSize:13,padding:"12px 14px",textAlign:"center",background:"rgba(30,41,59,.6)",border:"1px solid rgba(139,92,246,.3)"}}),
+              emailErr&&el("div",{style:{fontSize:11,color:"#f59e0b",textAlign:"center",marginBottom:8}},emailErr),
+              el("button",{onClick:()=>{if(!subEmail.includes("@")){setEmailErr("Enter a valid email");return}startCheckout("monthly",subEmail.trim().toLowerCase())},disabled:!!checkoutLoading||!subEmail.includes("@"),style:{width:"100%",fontFamily:mono,fontSize:13,fontWeight:700,letterSpacing:2,background:subEmail.includes("@")?"linear-gradient(135deg,#7c3aed,#6d28d9)":"rgba(100,116,139,.25)",color:subEmail.includes("@")?"#fff":"#64748b",border:"none",padding:"12px",borderRadius:8,cursor:subEmail.includes("@")?"pointer":"not-allowed",marginBottom:10}},checkoutLoading==="monthly"?"REDIRECTING...":"CONTINUE — $9.99/MO"),
+              el("div",{style:{textAlign:"center"}},el("button",{onClick:()=>setUpgradeStep("choose"),style:{background:"none",border:"none",color:"#64748b",fontSize:11,cursor:"pointer"}},"← Back"))
+            ),
+            upgradeStep==="login"&&el("div",null,
+              el("div",{style:{textAlign:"center",marginBottom:16}},
+                el("div",{style:{fontSize:24,marginBottom:6}},"🔑"),
+                el("h2",{style:{fontFamily:mono,fontSize:13,fontWeight:700,color:"#e2e8f0",letterSpacing:2,marginBottom:6}},"SUBSCRIBER LOGIN"),
+                el("p",{style:{fontSize:12,color:"#64748b"}},"Enter your subscription email.")
+              ),
+              el("input",{value:subEmail,onChange:ev=>{setSubEmail(ev.target.value);setEmailErr("")},onKeyDown:ev=>ev.key==="Enter"&&subEmail.includes("@")&&checkSubscription(subEmail.trim().toLowerCase()),placeholder:"your@email.com",style:{...IS,marginBottom:8,fontFamily:mono,fontSize:13,padding:"12px 14px",textAlign:"center",background:"rgba(30,41,59,.6)",border:"1px solid rgba(139,92,246,.3)"}}),
+              emailErr&&el("div",{style:{fontSize:11,color:"#f59e0b",textAlign:"center",marginBottom:8}},emailErr),
+              el("button",{onClick:()=>checkSubscription(subEmail.trim().toLowerCase()),disabled:checkingEmail||!subEmail.includes("@"),style:{width:"100%",fontFamily:mono,fontSize:13,fontWeight:700,letterSpacing:2,background:subEmail.includes("@")?"linear-gradient(135deg,#7c3aed,#6d28d9)":"rgba(100,116,139,.25)",color:subEmail.includes("@")?"#fff":"#64748b",border:"none",padding:"12px",borderRadius:8,cursor:subEmail.includes("@")?"pointer":"not-allowed",marginBottom:10}},checkingEmail?"CHECKING...":"VERIFY"),
+              el("div",{style:{textAlign:"center"}},el("button",{onClick:()=>setUpgradeStep("choose"),style:{background:"none",border:"none",color:"#64748b",fontSize:11,cursor:"pointer"}},"← Back"))
+            )
+          )
+        )
+      ),
+
+      // Footer with SEO content
+      el("div",{style:{marginTop:48,paddingTop:24,borderTop:"1px solid rgba(100,116,139,.2)"}},
+        el("div",{style:{maxWidth:640,margin:"0 auto",textAlign:"center",marginBottom:24}},
+          el("h2",{style:{fontFamily:mono,fontSize:12,color:"#94a3b8",letterSpacing:2,marginBottom:12}},"FREE ATS RESUME CHECKER"),
+          el("p",{style:{fontSize:12,color:"#64748b",lineHeight:1.7,marginBottom:8}},"Resume Weapon is a free ATS resume checker and AI-powered resume builder. Upload your resume, paste any job posting, and our ATS checker analyzes keyword matches, scores your resume against applicant tracking systems, and generates an ATS-friendly, optimized version tailored to the role."),
+          el("p",{style:{fontSize:12,color:"#64748b",lineHeight:1.7,marginBottom:8}},"Most resumes get rejected by ATS software before a human ever reads them. Our ATS score checker identifies missing keywords, weak formatting, and compliance gaps — then our AI rebuilds your resume with the exact language hiring managers and applicant tracking systems are scanning for."),
+          el("p",{style:{fontSize:11,color:"#64748b",lineHeight:1.7}},"Works with any industry: tech, healthcare, finance, sales, marketing, engineering, and more. Upload .docx, .pdf, or paste text. Free to check — upgrade to download clean PDF & Word files.")
+        ),
+        el("div",{style:{display:"flex",flexWrap:"wrap",justifyContent:"center",gap:8,marginBottom:16}},
+          ["ATS Resume Checker","Free ATS Checker","ATS Score Checker","ATS Friendly Resume","AI Resume Builder","Applicant Tracking System","ATS CV Checker","Resume Keyword Optimizer"].map((t,i)=>
+            el("span",{key:i,style:{fontSize:10,color:"#64748b",background:"rgba(100,116,139,.1)",padding:"3px 10px",borderRadius:10,fontFamily:mono,letterSpacing:1}},t)
+          )
+        ),
+        el("p",{style:{fontFamily:mono,fontSize:10,color:"#64748b",letterSpacing:2,marginTop:16}},"RESUME WEAPON — FREE ATS RESUME CHECKER — POWERED BY AI"),
+        el("div",{style:{display:"flex",justifyContent:"center",gap:16,marginTop:8}},
+          el("a",{href:"/blog",style:{fontSize:11,color:"#64748b"}},"Blog"),
+          el("a",{href:"/privacy",style:{fontSize:11,color:"#64748b"}},"Privacy Policy"),
+          el("a",{href:"/terms",style:{fontSize:11,color:"#64748b"}},"Terms of Service")
+        )
+      )
+    )
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(el(App));
+</script>
+<!-- SEO: crawlable content for search engines -->
+<noscript>
+<h1>Resume Weapon — Free ATS Resume Checker & AI Resume Builder</h1>
+<p>Resume Weapon is the best free ATS resume checker online. Upload your resume, paste a job posting, and instantly check your ATS score. Our AI-powered resume builder creates ATS-friendly, keyword-optimized resumes that pass applicant tracking systems and land interviews.</p>
+
+<h2>Free ATS Resume Checker — Score Your Resume Instantly</h2>
+<p>Our free ATS resume checker analyzes your resume against any job posting and gives you an instant ATS compatibility score from 0-100. See exactly which keywords from the job description your resume matches, and which critical keywords you're missing. Over 75% of resumes are filtered out by applicant tracking systems before a human recruiter ever sees them — our ATS checker ensures yours isn't one of them.</p>
+
+<h2>AI Resume Builder — ATS-Optimized Resumes in Seconds</h2>
+<p>Upload your existing resume and paste a target job posting. Resume Weapon's AI builds a tailored, keyword-optimized resume that mirrors the job description's language while keeping your real experience intact. Choose from three professional styles (Classic, Modern, Executive) and download as PDF or Word.</p>
+
+<h2>How Our Free ATS Checker Works</h2>
+<p>Step 1: Upload your resume in .docx, .pdf, or paste text. Step 2: Paste the full job posting you want to target. Step 3: Get your instant ATS score with matched and missing keyword breakdown. Step 4: Our AI builds an optimized resume tailored to the job. Step 5: Download as PDF or Word document.</p>
+
+<h2>Frequently Asked Questions — ATS Resume Checker</h2>
+
+<h3>What is an ATS resume checker?</h3>
+<p>An ATS resume checker is a tool that analyzes how your resume will perform when scanned by applicant tracking systems. It checks for keyword matches between your resume and the job posting, evaluates formatting compatibility, and gives you a score indicating your chances of passing automated screening filters used by employers.</p>
+
+<h3>What is a good ATS score?</h3>
+<p>An ATS score of 80 or above is considered strong and means your resume is likely to pass most applicant tracking system filters. Scores between 60-79 indicate decent compatibility with room for improvement. Below 60 means significant keyword gaps that could cause your resume to be filtered out before a human recruiter ever reads it.</p>
+
+<h3>How do I make my resume ATS-friendly?</h3>
+<p>To make an ATS-friendly resume: use exact keywords from the job description, use standard section headers like Professional Experience and Education, use a single-column layout, avoid tables and graphics, use standard fonts like Arial or Calibri, and save as .docx or PDF format. Most importantly, tailor your resume for each specific job application.</p>
+
+<h3>Is Resume Weapon's ATS checker free?</h3>
+<p>Yes. Resume Weapon's ATS resume checker and AI resume builder are completely free to use. Upload your resume, paste any job posting, and instantly see your ATS compatibility score with matched and missing keywords. The AI-generated resume preview is free. You only pay if you want to download the clean version without watermarks ($4.99 per resume or $9.99/month unlimited).</p>
+
+<h3>Why do resumes get rejected by ATS?</h3>
+<p>Resumes get rejected by applicant tracking systems for three main reasons: missing keywords from the job description, formatting issues like tables, columns, text boxes, or graphics that confuse the ATS parser, and incompatible file types. The most common reason is simply not using the same terminology as the job posting.</p>
+
+<h3>How does the ATS score work?</h3>
+<p>Resume Weapon's ATS score extracts keywords, skills, tools, certifications, and requirements from the job description, then checks which ones appear in your resume. Multi-word skill phrases are weighted more heavily than single words since they indicate more specific matches. The score ranges from 0-100, with 80+ indicating strong alignment with the job requirements.</p>
+
+<h2>ATS Resume Checker Features</h2>
+<p>Free ATS score (0-100) • Keyword match analysis • Missing keyword identification • AI-powered resume builder • Three professional resume styles • PDF and Word download • Supports .docx, .pdf, and text uploads • Client-side processing — your data stays private • Powered by Claude AI</p>
+
+<h2>Popular ATS Resume Resources</h2>
+<p><a href="/blog">ATS Resume Tips Blog</a> | <a href="/blog/how-to-pass-ats-systems">How to Pass ATS Systems</a> | <a href="/blog/best-ats-resume-format">Best ATS Resume Format</a> | <a href="/blog/ats-keywords-guide">ATS Keywords Guide</a></p>
+
+<p>Free ATS resume checker | ATS score checker | ATS CV checker | Free ATS checker online | Best ATS resume checker | ATS friendly resume builder | Applicant tracking system checker | Resume keyword optimizer | ATS compliant resume checker | Online ATS resume checker free | Free resume ATS checker | ATS resume checker free online | Best ATS resume checker free | ATS checker resume | Resume checker ATS | CV ATS checker | ATS friendly resume checker</p>
+</noscript>
+</body>
+</html>
