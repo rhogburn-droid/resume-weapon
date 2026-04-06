@@ -13,7 +13,10 @@ export default async (req, context) => {
   if (req.method !== "POST") {
     return new Response(JSON.stringify({ error: "Method not allowed" }), {
       status: 405,
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
     });
   }
 
@@ -21,21 +24,39 @@ export default async (req, context) => {
   if (!stripeKey) {
     return new Response(
       JSON.stringify({ error: "STRIPE_SECRET_KEY not set in Netlify environment variables." }),
-      { status: 500, headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" } }
+      {
+        status: 500,
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+      }
     );
   }
 
   try {
-    const { plan, origin } = await req.json();
+    const { plan, origin, isIndia } = await req.json();
 
-    const priceId = plan === "monthly"
-      ? process.env.STRIPE_PRICE_MONTHLY
-      : process.env.STRIPE_PRICE_SINGLE;
+    const priceId = isIndia
+      ? (plan === "monthly"
+          ? process.env.STRIPE_PRICE_MONTHLY_INR
+          : process.env.STRIPE_PRICE_SINGLE_INR)
+      : (plan === "monthly"
+          ? process.env.STRIPE_PRICE_MONTHLY_USD
+          : process.env.STRIPE_PRICE_SINGLE_USD);
 
     if (!priceId) {
       return new Response(
-        JSON.stringify({ error: "Stripe price ID not configured for plan: " + plan }),
-        { status: 500, headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" } }
+        JSON.stringify({
+          error: `Stripe price ID not configured for plan: ${plan}, region: ${isIndia ? "IN" : "US"}`
+        }),
+        {
+          status: 500,
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+        }
       );
     }
 
@@ -52,7 +73,7 @@ export default async (req, context) => {
     const response = await fetch("https://api.stripe.com/v1/checkout/sessions", {
       method: "POST",
       headers: {
-        "Authorization": "Bearer " + stripeKey,
+        Authorization: "Bearer " + stripeKey,
         "Content-Type": "application/x-www-form-urlencoded",
       },
       body: params.toString(),
@@ -63,18 +84,33 @@ export default async (req, context) => {
     if (!response.ok) {
       return new Response(
         JSON.stringify({ error: session.error?.message || "Stripe error" }),
-        { status: response.status, headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" } }
+        {
+          status: response.status,
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+        }
       );
     }
 
     return new Response(JSON.stringify({ url: session.url }), {
       status: 200,
-      headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
     });
   } catch (err) {
     return new Response(
       JSON.stringify({ error: "Checkout error: " + err.message }),
-      { status: 500, headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" } }
+      {
+        status: 500,
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+      }
     );
   }
 };
