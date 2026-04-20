@@ -10,8 +10,8 @@ export default async function handler(req) {
     const { plan, origin, email, embedded } = await req.json();
 
     const priceId = plan === "monthly"
-      ? process.env.STRIPE_PRICE_MONTHLY
-      : process.env.STRIPE_PRICE_SINGLE;
+      ? (process.env.STRIPE_PRICE_MONTHLY_USD || process.env.STRIPE_PRICE_MONTHLY)
+      : (process.env.STRIPE_PRICE_SINGLE_USD || process.env.STRIPE_PRICE_SINGLE);
 
     if (!priceId) {
       return new Response(JSON.stringify({ error: "Price not configured" }), { status: 500 });
@@ -31,7 +31,6 @@ export default async function handler(req) {
     // Embedded mode — only if publishable key is configured
     if (embedded && process.env.STRIPE_PUBLISHABLE_KEY) {
       sessionParams.ui_mode = "embedded";
-      // Stripe REQUIRES {CHECKOUT_SESSION_ID} in return_url for embedded mode
       sessionParams.return_url = `${baseUrl}/?paid=true&session_id={CHECKOUT_SESSION_ID}`;
 
       const session = await stripe.checkout.sessions.create(sessionParams);
@@ -45,7 +44,7 @@ export default async function handler(req) {
       });
     }
 
-    // Redirect mode (default or fallback when no publishable key)
+    // Redirect mode (default or fallback)
     sessionParams.success_url = `${baseUrl}/?paid=true`;
     sessionParams.cancel_url = `${baseUrl}/?canceled=true`;
 
