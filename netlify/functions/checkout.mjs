@@ -17,6 +17,8 @@ export default async function handler(req) {
       return new Response(JSON.stringify({ error: "Price not configured" }), { status: 500 });
     }
 
+    const baseUrl = origin || "https://atsresumechecker.io";
+
     const sessionParams = {
       line_items: [{ price: priceId, quantity: 1 }],
       mode: plan === "monthly" ? "subscription" : "payment",
@@ -26,11 +28,11 @@ export default async function handler(req) {
       sessionParams.customer_email = email;
     }
 
-    // Embedded mode — render checkout on page
-    if (embedded) {
+    // Embedded mode — only if publishable key is configured
+    if (embedded && process.env.STRIPE_PUBLISHABLE_KEY) {
       sessionParams.ui_mode = "embedded";
-      sessionParams.return_url = `${origin || "https://atsresumechecker.io"}/?paid=true`;
-      sessionParams.automatic_tax = { enabled: false };
+      // Stripe REQUIRES {CHECKOUT_SESSION_ID} in return_url for embedded mode
+      sessionParams.return_url = `${baseUrl}/?paid=true&session_id={CHECKOUT_SESSION_ID}`;
 
       const session = await stripe.checkout.sessions.create(sessionParams);
 
@@ -43,9 +45,9 @@ export default async function handler(req) {
       });
     }
 
-    // Redirect mode (fallback)
-    sessionParams.success_url = `${origin || "https://atsresumechecker.io"}/?paid=true`;
-    sessionParams.cancel_url = `${origin || "https://atsresumechecker.io"}/?canceled=true`;
+    // Redirect mode (default or fallback when no publishable key)
+    sessionParams.success_url = `${baseUrl}/?paid=true`;
+    sessionParams.cancel_url = `${baseUrl}/?canceled=true`;
 
     const session = await stripe.checkout.sessions.create(sessionParams);
 
