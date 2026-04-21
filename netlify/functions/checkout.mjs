@@ -14,52 +14,41 @@ export default async function handler(req) {
       : (process.env.STRIPE_PRICE_SINGLE_USD || process.env.STRIPE_PRICE_SINGLE);
 
     if (!priceId) {
-      return new Response(JSON.stringify({ error: "Price not configured. Check env vars." }), { status: 500 });
+      return new Response(JSON.stringify({ error: "Price not configured" }), { status: 500 });
     }
 
     const baseUrl = origin || "https://atsresumechecker.io";
     const pubKey = process.env.STRIPE_PUBLISHABLE_KEY;
 
-    // Always create a redirect session as fallback
-    const redirectParams = {
+    // Create ONE session only — either embedded or redirect, not both
+    if (embedded && pubKey) {
+      const session = await stripe.checkout.sessions.create({
+        line_items: [{ price: priceId, quantity: 1 }],
+        mode: plan === "monthly" ? "subscription" : "payment",
+        ui_mode: "embedded",
+        return_url: `${baseUrl}/?paid=true&session_id={CHECKOUT_SESSION_ID}`,
+        ...(email ? { customer_email: email } : {}),
+      });
+
+      return new Response(JSON.stringify({
+        clientSecret: session.client_secret,
+        publishableKey: pubKey
+      }), {
+        status: 200,
+        headers: { "Content-Type": "application/json" }
+      });
+    }
+
+    // Redirect mode
+    const session = await stripe.checkout.sessions.create({
       line_items: [{ price: priceId, quantity: 1 }],
       mode: plan === "monthly" ? "subscription" : "payment",
       success_url: `${baseUrl}/?paid=true`,
       cancel_url: `${baseUrl}/?canceled=true`,
-    };
-    if (email) redirectParams.customer_email = email;
+      ...(email ? { customer_email: email } : {}),
+    });
 
-    // Try embedded mode first
-    if (embedded && pubKey) {
-      try {
-        const embedParams = {
-          line_items: [{ price: priceId, quantity: 1 }],
-          mode: plan === "monthly" ? "subscription" : "payment",
-          ui_mode: "embedded",
-          return_url: `${baseUrl}/?paid=true&session_id={CHECKOUT_SESSION_ID}`,
-        };
-        if (email) embedParams.customer_email = email;
-
-        const session = await stripe.checkout.sessions.create(embedParams);
-
-        return new Response(JSON.stringify({
-          clientSecret: session.client_secret,
-          publishableKey: pubKey,
-          mode: "embedded"
-        }), {
-          status: 200,
-          headers: { "Content-Type": "application/json" }
-        });
-      } catch (embedErr) {
-        // Embedded failed — fall through to redirect
-        console.log("Embedded checkout failed:", embedErr.message);
-      }
-    }
-
-    // Redirect mode (default or fallback)
-    const session = await stripe.checkout.sessions.create(redirectParams);
-
-    return new Response(JSON.stringify({ url: session.url, mode: "redirect" }), {
+    return new Response(JSON.stringify({ url: session.url }), {
       status: 200,
       headers: { "Content-Type": "application/json" }
     });
