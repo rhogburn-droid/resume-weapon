@@ -8,3 +8,19 @@
   from = "/api/*"
   to = "/.netlify/functions/:splat"
   status = 200
+
+# Fix inconsistent blog URLs — redirect /index.html to clean URL
+[[redirects]]
+  from = "/blog/why-resume-rejected/index.html"
+  to = "/blog/why-resume-getting-rejected/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/why-resume-rejected/*"
+  to = "/blog/why-resume-getting-rejected/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/ats-resume-tips-career-changers/index.html"
+  to = "/blog/ats-resume-tips-career-changers/"
+  status = 301
