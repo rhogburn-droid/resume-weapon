@@ -7,11 +7,18 @@ export default async function handler(req) {
 
   try {
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-    const { plan, origin, email, embedded } = await req.json();
+    const { plan, origin, email, embedded, priceVariant } = await req.json();
 
-    const priceId = plan === "monthly"
-      ? (process.env.STRIPE_PRICE_MONTHLY_USD || process.env.STRIPE_PRICE_MONTHLY)
-      : (process.env.STRIPE_PRICE_SINGLE_USD || process.env.STRIPE_PRICE_SINGLE);
+    let priceId;
+    if (plan === "monthly") {
+      priceId = process.env.STRIPE_PRICE_MONTHLY_USD || process.env.STRIPE_PRICE_MONTHLY;
+    } else if (priceVariant === "b_499" && process.env.STRIPE_PRICE_SINGLE_499) {
+      // A/B test: $4.99 variant
+      priceId = process.env.STRIPE_PRICE_SINGLE_499;
+    } else {
+      // Default: $2.99
+      priceId = process.env.STRIPE_PRICE_SINGLE_USD || process.env.STRIPE_PRICE_SINGLE;
+    }
 
     if (!priceId) {
       return new Response(JSON.stringify({ error: "Price not configured" }), { status: 500 });
@@ -20,15 +27,18 @@ export default async function handler(req) {
     const baseUrl = origin || "https://atsresumechecker.io";
     const pubKey = process.env.STRIPE_PUBLISHABLE_KEY;
 
-    // Create ONE session only — either embedded or redirect, not both
+    const sessionParams = {
+      line_items: [{ price: priceId, quantity: 1 }],
+      mode: plan === "monthly" ? "subscription" : "payment",
+      ...(email ? { customer_email: email } : {}),
+    };
+
+    // Embedded mode
     if (embedded && pubKey) {
-      const session = await stripe.checkout.sessions.create({
-        line_items: [{ price: priceId, quantity: 1 }],
-        mode: plan === "monthly" ? "subscription" : "payment",
-        ui_mode: "embedded",
-        return_url: `${baseUrl}/?paid=true&session_id={CHECKOUT_SESSION_ID}`,
-        ...(email ? { customer_email: email } : {}),
-      });
+      sessionParams.ui_mode = "embedded";
+      sessionParams.return_url = `${baseUrl}/?paid=true&session_id={CHECKOUT_SESSION_ID}`;
+
+      const session = await stripe.checkout.sessions.create(sessionParams);
 
       return new Response(JSON.stringify({
         clientSecret: session.client_secret,
@@ -40,13 +50,10 @@ export default async function handler(req) {
     }
 
     // Redirect mode
-    const session = await stripe.checkout.sessions.create({
-      line_items: [{ price: priceId, quantity: 1 }],
-      mode: plan === "monthly" ? "subscription" : "payment",
-      success_url: `${baseUrl}/?paid=true`,
-      cancel_url: `${baseUrl}/?canceled=true`,
-      ...(email ? { customer_email: email } : {}),
-    });
+    sessionParams.success_url = `${baseUrl}/?paid=true`;
+    sessionParams.cancel_url = `${baseUrl}/?canceled=true`;
+
+    const session = await stripe.checkout.sessions.create(sessionParams);
 
     return new Response(JSON.stringify({ url: session.url }), {
       status: 200,
