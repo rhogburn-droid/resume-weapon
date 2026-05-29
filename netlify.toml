@@ -9,15 +9,40 @@
   to = "/.netlify/functions/:splat"
   status = 200
 
-# Fix inconsistent blog URLs — redirect /index.html to clean URL
+# Fix mismatched blog slugs — 301 redirect old URLs to actual folders
 [[redirects]]
-  from = "/blog/why-resume-rejected/index.html"
-  to = "/blog/why-resume-getting-rejected/"
+  from = "/blog/why-resume-getting-rejected/*"
+  to = "/blog/why-resume-rejected/"
   status = 301
 
 [[redirects]]
-  from = "/blog/why-resume-rejected/*"
-  to = "/blog/why-resume-getting-rejected/"
+  from = "/blog/why-resume-getting-rejected"
+  to = "/blog/why-resume-rejected/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/how-to-get-past-ats-filters/*"
+  to = "/blog/how-to-get-past-ats-2026/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/how-to-get-past-ats-filters"
+  to = "/blog/how-to-get-past-ats-2026/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/ats-resume-format-healthcare/*"
+  to = "/blog/ats-resume-healthcare/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/ats-resume-format-healthcare"
+  to = "/blog/ats-resume-healthcare/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/why-resume-rejected/index.html"
+  to = "/blog/why-resume-rejected/"
   status = 301
 
 [[redirects]]
