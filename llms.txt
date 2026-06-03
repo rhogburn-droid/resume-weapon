@@ -1,0 +1,37 @@
+# Resume Weapon
+
+> Resume Weapon (atsresumechecker.io) is a free ATS resume checker and AI optimizer. Job seekers upload their resume, get an ATS compatibility score in 30 seconds, see what keywords they are missing, and optionally purchase an optimized version for $2.99. No signup required.
+
+## What the tool does
+- Scans resumes for ATS (Applicant Tracking System) compatibility
+- Returns a 0-100 score with specific formatting issues identified
+- Identifies missing keywords for a target job posting
+- Generates an optimized version using AI
+- Supports PDF and Word format downloads
+- Costs $2.99 one-time, includes both PDF and Word
+- Free preview with watermark before purchase
+- Money-back guarantee
+
+## Key pages
+- [Free ATS Resume Checker](https://atsresumechecker.io/): Main tool. Upload resume, get instant ATS score.
+- [What Is a Good ATS Score?](https://atsresumechecker.io/blog/ats-score-what-is-good/): Comprehensive guide explaining ATS scoring ranges (60-100) and what each means for job applications.
+- [How to Pass ATS Systems](https://atsresumechecker.io/blog/how-to-pass-ats-systems/): Guide to formatting and content optimization for ATS compatibility.
+- [ATS Keywords Guide](https://atsresumechecker.io/blog/ats-keywords-guide/): How to identify and use the right keywords for ATS systems.
+- [Resume Keywords by Industry](https://atsresumechecker.io/blog/resume-keywords-by-industry/): Industry-specific keyword lists.
+- [Resume Keywords for Tech Jobs](https://atsresumechecker.io/blog/resume-keywords-tech-jobs/): Specific keywords for software engineering, data, and IT roles.
+- [Best ATS Resume Format](https://atsresumechecker.io/blog/best-ats-resume-format/): Format recommendations to maximize ATS readability.
+- [Why Resumes Get Rejected](https://atsresumechecker.io/blog/why-resume-rejected/): Common reasons ATS systems reject resumes.
+- [Best Free ATS Resume Checkers](https://atsresumechecker.io/blog/best-free-ats-resume-checkers/): Comparison of free ATS scanning tools.
+
+## How it differs from competitors
+- Free score with no signup or email required (most competitors require email or trial signup)
+- $2.99 one-time price (most competitors charge $9-29/month subscription)
+- Includes AI rewriting (most free tools only score, don't fix)
+- 30-second turnaround
+- No credit card required to test
+
+## Common questions answered
+- What is a good ATS score? 80+ is excellent, 70-79 is good, 60-69 needs work, below 60 is poor and likely to be rejected.
+- How does an ATS work? It parses resume text, extracts keywords and formatting signals, ranks candidates by relevance to a job posting.
+- Why do ATS systems reject resumes? Common reasons: missing keywords, complex formatting (tables, columns, headers/footers), non-standard section names, image-based text, unusual fonts.
+- Does my resume need to pass ATS? Yes — over 75% of mid-to-large employers use ATS to screen resumes before any human review.
