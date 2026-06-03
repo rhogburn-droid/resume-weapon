@@ -9,7 +9,7 @@
   to = "/.netlify/functions/:splat"
   status = 200
 
-# Fix mismatched blog slugs — 301 redirect old URLs to actual folders
+# Slug-mismatch redirects (301) — old linked URLs to actual folders
 [[redirects]]
   from = "/blog/why-resume-getting-rejected/*"
   to = "/blog/why-resume-rejected/"
@@ -38,14 +38,4 @@
 [[redirects]]
   from = "/blog/ats-resume-format-healthcare"
   to = "/blog/ats-resume-healthcare/"
-  status = 301
-
-[[redirects]]
-  from = "/blog/why-resume-rejected/index.html"
-  to = "/blog/why-resume-rejected/"
-  status = 301
-
-[[redirects]]
-  from = "/blog/ats-resume-tips-career-changers/index.html"
-  to = "/blog/ats-resume-tips-career-changers/"
   status = 301
