@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>How the ATS Score Is Calculated — Scoring Methodology | Resume Weapon</title>
+<meta name="description" content="A transparent breakdown of how Resume Weapon calculates your ATS score: the nine factors, how much each is weighted, and why a resume gains or loses points."/>
+<link rel="canonical" href="https://atsresumechecker.io/methodology/"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How is the ATS score calculated?","acceptedAnswer":{"@type":"Answer","text":"The ATS score is a weighted average of nine factors. Job-description keyword match is weighted most heavily at 30%, followed by skills match at 20%, resume parsing and readability at 15%, then section headings, job-title alignment, and formatting at 10% each, with file type and date formatting at 5%. The score ranges from 0 to 100."}},
+{"@type":"Question","name":"Which factor affects my ATS score the most?","acceptedAnswer":{"@type":"Answer","text":"Job-description keyword match has the largest impact at 30% of the score. This measures how many of the skills, tools, and terms from the specific job posting appear in your resume. Skills match adds another 20%, so keyword and skill alignment together account for half your score."}},
+{"@type":"Question","name":"Why did my resume lose points?","acceptedAnswer":{"@type":"Answer","text":"Common reasons for lost points: missing keywords from the job posting, multi-column or table-based layouts that break parsing, non-standard section headings, a job title that does not align with the target role, image-based PDFs the parser cannot read, and inconsistent date formats. Each maps to one of the nine scored factors."}},
+{"@type":"Question","name":"Is the exact algorithm public?","acceptedAnswer":{"@type":"Answer","text":"The factor weights are published transparently so you understand what drives your score. The precise internal scoring logic is proprietary, but the weighting breakdown gives you enough detail to know exactly what to improve and why."}}
+]}</script>
+<style>*{margin:0;padding:0;box-sizing:border-box}body{background:#f8fafc;font-family:Georgia,'Times New Roman',serif;color:#334155;line-height:1.8}a{color:#7c3aed;text-decoration:none}a:hover{text-decoration:underline}.container{max-width:760px;margin:0 auto;padding:24px 20px}.nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid #e2e8f0;margin-bottom:40px}.nav-brand{font-family:monospace;font-size:14px;font-weight:700;letter-spacing:2px;color:#7c3aed}.nav-cta{font-family:monospace;font-size:11px;letter-spacing:2px;background:linear-gradient(135deg,#7c3aed,#6d28d9);color:#fff;padding:8px 20px;border-radius:6px;text-decoration:none}h1{font-size:30px;font-weight:800;color:#1e293b;margin-bottom:8px;line-height:1.25;font-family:system-ui,sans-serif}.meta{font-size:13px;color:#94a3b8;margin-bottom:28px;font-family:system-ui,sans-serif}h2{font-size:22px;font-weight:700;color:#1e293b;margin:34px 0 12px;font-family:system-ui,sans-serif}h3{font-size:17px;font-weight:600;color:#1e293b;margin:22px 0 8px;font-family:system-ui,sans-serif}p{font-size:16px;color:#475569;margin-bottom:16px}.wtable{width:100%;border-collapse:collapse;margin:20px 0;font-family:system-ui,sans-serif;font-size:14px}.wtable th{text-align:left;padding:11px 12px;background:#f1f5f9;color:#1e293b;font-weight:600;border-bottom:2px solid #e2e8f0}.wtable td{padding:11px 12px;border-bottom:1px solid #e2e8f0;color:#475569;vertical-align:top}.wbar{display:inline-block;height:8px;background:linear-gradient(90deg,#7c3aed,#38bdf8);border-radius:4px;vertical-align:middle;margin-right:8px}.wpct{font-weight:700;color:#7c3aed;font-family:system-ui,sans-serif}.cta-box{text-align:center;margin:32px 0;padding:26px;background:linear-gradient(135deg,rgba(124,58,237,.06),rgba(56,189,248,.04));border:1px solid rgba(124,58,237,.2);border-radius:12px}.cta-btn{display:inline-block;font-family:monospace;font-size:14px;font-weight:700;letter-spacing:2px;background:linear-gradient(135deg,#7c3aed,#6d28d9);color:#fff;padding:14px 32px;border-radius:8px;text-decoration:none;margin-top:12px}.example{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px 20px;margin:12px 0}.example .lost{color:#dc2626;font-weight:600;font-family:system-ui,sans-serif;font-size:13px}.example .gain{color:#16a34a;font-weight:600;font-family:system-ui,sans-serif;font-size:13px}.example p{font-size:14px;margin:6px 0 0}.faq{margin:28px 0}.faq-item{border-bottom:1px solid #e2e8f0;padding:14px 0}.faq-q{font-size:17px;font-weight:600;color:#1e293b;margin-bottom:6px;font-family:system-ui,sans-serif}.faq-a{font-size:15px;color:#475569}.breadcrumb{font-family:system-ui,sans-serif;font-size:12px;color:#94a3b8;margin-bottom:16px}.breadcrumb a{color:#94a3b8}.footer{margin-top:48px;padding-top:24px;border-top:1px solid #e2e8f0;text-align:center}.footer p{font-family:monospace;font-size:10px;color:#94a3b8;letter-spacing:2px}</style>
+</head>
+<body>
+<div class="container">
+  <nav class="nav"><a href="/" class="nav-brand">⚡ RESUME WEAPON</a><a href="/" class="nav-cta">FREE ATS CHECK →</a></nav>
+  <div class="breadcrumb"><a href="/">Home</a> → <a href="/how-it-works/">How It Works</a> → Scoring Methodology</div>
+
+  <h1>How the ATS Score Is Calculated</h1>
+  <div class="meta">A transparent breakdown of the nine factors and their weights</div>
+
+  <p><strong>Your ATS score is a weighted average of nine factors, scored from 0 to 100.</strong> We publish the weighting below so you know exactly what drives your score and where to focus. Keyword and skills matching together account for half your score — because that's what real applicant tracking systems weight most heavily.</p>
+
+  <h2>Scoring Weights</h2>
+  <table class="wtable">
+    <tr><th>Factor</th><th>Weight</th><th>What it measures</th></tr>
+    <tr><td>Job-description keyword match</td><td><span class="wbar" style="width:60px"></span><span class="wpct">30%</span></td><td>How many skills, tools, and terms from the specific job posting appear in your resume.</td></tr>
+    <tr><td>Skills match</td><td><span class="wbar" style="width:40px"></span><span class="wpct">20%</span></td><td>Alignment of your hard and soft skills with the role's requirements.</td></tr>
+    <tr><td>Resume parsing / readability</td><td><span class="wbar" style="width:30px"></span><span class="wpct">15%</span></td><td>Whether the ATS can cleanly extract your text. Image-based PDFs fail here.</td></tr>
+    <tr><td>Section headings</td><td><span class="wbar" style="width:20px"></span><span class="wpct">10%</span></td><td>Use of standard, recognizable headers (Experience, Education, Skills).</td></tr>
+    <tr><td>Job-title alignment</td><td><span class="wbar" style="width:20px"></span><span class="wpct">10%</span></td><td>Whether your titles map to the role you're targeting.</td></tr>
+    <tr><td>Formatting (columns / tables)</td><td><span class="wbar" style="width:20px"></span><span class="wpct">10%</span></td><td>Single-column, parser-safe layout vs. multi-column or table-based designs.</td></tr>
+    <tr><td>File type & date formatting</td><td><span class="wbar" style="width:10px"></span><span class="wpct">5%</span></td><td>ATS-compatible file format and consistent, parseable dates.</td></tr>
+  </table>
+  <p style="font-size:13px;color:#94a3b8">Weights are approximate and may be refined as ATS platforms evolve. The exact internal logic is proprietary, but these weights reflect how the score is composed.</p>
+
+  <h2>Why Resumes Gain or Lose Points — Examples</h2>
+
+  <div class="example">
+    <span class="lost">− Lost points: keyword match</span>
+    <p>The posting asks for "stakeholder management" and "Agile delivery." The resume says "worked with teams" and "managed projects." The meaning is similar, but the exact terms are missing — so the keyword-match factor (30%) drops significantly.</p>
+  </div>
+
+  <div class="example">
+    <span class="lost">− Lost points: formatting</span>
+    <p>A two-column template places skills in a sidebar. The parser reads left-to-right across both columns, scrambling the content. The formatting factor (10%) and parsing factor (15%) both take a hit.</p>
+  </div>
+
+  <div class="example">
+    <span class="gain">+ Gained points: section headings + skills</span>
+    <p>Switching "My Journey" to "Professional Experience" and adding a clear "Skills" section with the posting's exact tools lets the parser categorize everything correctly — lifting the headings (10%) and skills (20%) factors.</p>
+  </div>
+
+  <div class="example">
+    <span class="gain">+ Gained points: parsing</span>
+    <p>Replacing an image-based PDF (scanned) with a text-based .docx means the ATS can actually read the content. Parsing/readability (15%) jumps from near-zero to full credit.</p>
+  </div>
+
+  <h2>How to Use the Weighting</h2>
+  <p>Because keyword match (30%) and skills match (20%) are half your score, the single highest-impact action is tailoring your resume's keywords to each specific job posting. After that, fixing parsing and formatting issues (25% combined) protects the score you've earned. Standard headings, aligned titles, and clean file formatting handle the rest.</p>
+
+  <div class="cta-box">
+    <p style="font-family:monospace;font-size:13px;color:#7c3aed;letter-spacing:1px;font-weight:700;margin-bottom:6px">SEE YOUR SCORE BREAKDOWN</p>
+    <p style="font-size:14px;margin-bottom:0">Upload your resume and see your score across all nine factors. Free, no signup.</p>
+    <a href="/" class="cta-btn">CHECK MY RESUME →</a>
+  </div>
+
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq">
+    <div class="faq-item"><div class="faq-q">How is the ATS score calculated?</div><div class="faq-a">A weighted average of nine factors. Keyword match is 30%, skills match 20%, parsing 15%, then headings, title alignment, and formatting at 10% each, with file type and dates at 5%. Range is 0–100.</div></div>
+    <div class="faq-item"><div class="faq-q">Which factor affects my score the most?</div><div class="faq-a">Job-description keyword match at 30%. Combined with skills match (20%), keyword and skill alignment make up half your score.</div></div>
+    <div class="faq-item"><div class="faq-q">Why did my resume lose points?</div><div class="faq-a">Usually missing keywords, multi-column/table layouts, non-standard headings, misaligned job titles, image-based PDFs, or inconsistent dates — each maps to one of the nine factors.</div></div>
+    <div class="faq-item"><div class="faq-q">Is the exact algorithm public?</div><div class="faq-a">The factor weights are public so you know what to improve. The precise internal logic is proprietary, but the weighting gives you enough to act on.</div></div>
+  </div>
+
+  <div class="footer">
+    <p>RESUME WEAPON — FREE ATS RESUME CHECKER & AI RESUME BUILDER</p>
+    <p style="margin-top:8px"><a href="/">Home</a> · <a href="/how-it-works/">How It Works</a> · <a href="/about/">About</a> · <a href="/compare/">Compare</a> · <a href="/privacy/">Privacy</a></p>
+  </div>
+</div>
+</body>
+</html>
