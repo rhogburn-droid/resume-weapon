@@ -25,7 +25,7 @@ export default async (req, context) => {
   try {
     const body = await req.json();
     const payload = {
-      model: body.model || "claude-sonnet-4-20250514",
+      model: body.model || "claude-sonnet-4-6",
       max_tokens: Math.min(body.max_tokens || 4000, 8000),
       messages: body.messages || [],
     };
