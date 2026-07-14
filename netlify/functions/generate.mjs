@@ -22,15 +22,20 @@ export default async (req, context) => {
       { status: 500, headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" } }
     );
   }
+
   try {
     const body = await req.json();
+    const wantStream = body.stream === true;
+
     const payload = {
       model: body.model || "claude-sonnet-4-6",
       max_tokens: Math.min(body.max_tokens || 4000, 8000),
       messages: body.messages || [],
     };
     if (body.system) payload.system = body.system;
-    const response = await fetch("https://api.anthropic.com/v1/messages", {
+    if (wantStream) payload.stream = true;
+
+    const upstream = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -39,10 +44,37 @@ export default async (req, context) => {
       },
       body: JSON.stringify(payload),
     });
-    const data = await response.json();
-    return new Response(JSON.stringify(data), {
-      status: response.status,
-      headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
+
+    // Non-streaming path (unchanged behavior for any other caller)
+    if (!wantStream) {
+      const data = await upstream.json();
+      return new Response(JSON.stringify(data), {
+        status: upstream.status,
+        headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
+      });
+    }
+
+    // Streaming path: if upstream failed, return the error as JSON
+    if (!upstream.ok) {
+      const errData = await upstream.json().catch(() => ({ error: "Upstream error " + upstream.status }));
+      return new Response(JSON.stringify(errData), {
+        status: upstream.status,
+        headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
+      });
+    }
+
+    // Pass the SSE stream straight through to the browser.
+    // Bytes start flowing immediately, so the connection stays alive
+    // and the platform gateway never sees an idle request.
+    return new Response(upstream.body, {
+      status: 200,
+      headers: {
+        "Content-Type": "text/event-stream; charset=utf-8",
+        "Cache-Control": "no-cache, no-transform",
+        "Connection": "keep-alive",
+        "X-Accel-Buffering": "no",
+        "Access-Control-Allow-Origin": "*",
+      },
     });
   } catch (err) {
     return new Response(
